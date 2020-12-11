@@ -28,7 +28,23 @@ class Day02
   # letter a minimum of 'm' and a maximum  of 'n' times.
   #
   def exercise1
-    parse_data
+    parse_data MinMaxValidator
+    validators.select { |validator| validator.valid? }.size
+  end
+
+  ##
+  # According to the specified rules + passwords (i.e. 'data') return
+  # the number of 'valid' passwords.
+  #
+  # The policy specified is in the form of:
+  #  m-n x: where 'm' is a position, 'n' is another position, and 'x'
+  #         is the target letter
+  #
+  # Therefore, each specified password must have the specified letter
+  # in exactly one of the specified positions.
+  #
+  def exercise2
+    parse_data PositionalValidator
     validators.select { |validator| validator.valid? }.size
   end
 
@@ -36,17 +52,17 @@ class Day02
 
   attr_accessor :validators
 
-  def parse_data
+  def parse_data klass
     self.validators = []
 
     data.each do |line|
       parts = line.split(':')
-      validators << PasswordValidator.new(parts.first, parts.last)
+      validators << klass.new(parts.first.strip, parts.last.strip)
     end
   end
 end
 
-class PasswordValidator
+class MinMaxValidator
   attr_accessor :password, :policy
 
   def initialize policy, password
@@ -60,7 +76,7 @@ class PasswordValidator
   #
   def valid?
     letter_count = password.count letter
-    return letter_count <= max && letter_count >= min
+    letter_count <= max && letter_count >= min
   end
 
   private
@@ -76,5 +92,39 @@ class PasswordValidator
     parts = parts.first.split('-')
     self.min = parts.first.to_i
     self.max = parts.last.to_i
+  end
+end
+
+class PositionalValidator
+  attr_accessor :password, :policy
+
+  def initialize policy, password
+    self.policy = policy
+    self.password = password
+    parse_policy
+  end
+
+  ##
+  # A 'password' is valid if 'letter' is in exactly one position.
+  #
+  def valid?
+    a = (password[position1] == letter) ? 1 : 0
+    b = (password[position2] == letter) ? 1 : 0
+    (a + b) == 1
+  end
+
+  private
+
+  attr_accessor :letter, :position1, :position2
+
+  ##
+  # 'policy' is expected to be in the form of: 'm-n x'
+  #
+  def parse_policy
+    parts = policy.split(' ')
+    self.letter = parts.last
+    parts = parts.first.split('-')
+    self.position1 = parts.first.to_i - 1
+    self.position2 = parts.last.to_i - 1
   end
 end

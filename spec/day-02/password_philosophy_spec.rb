@@ -17,6 +17,10 @@ RSpec.describe 'Day 2: Password Philosophy' do
     it 'finds valid passwords' do
       expect(model.exercise1).to eq 2
     end
+
+    it 'finds actual valid passwords' do
+      expect(model.exercise2).to eq 1
+    end
   end
 
   context 'Exercises' do
@@ -24,6 +28,10 @@ RSpec.describe 'Day 2: Password Philosophy' do
 
     it 'finds valid passwords' do
       expect(model.exercise1).to eq 383
+    end
+
+    it 'finds actual valid passwords' do
+      expect(model.exercise2).to eq 706
     end
   end
 end
