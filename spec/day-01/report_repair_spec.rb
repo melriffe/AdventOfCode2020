@@ -1,6 +1,6 @@
 require './lib/day_01'
 
-RSpec.describe "Report Repair" do
+RSpec.describe 'Day 1: Report Repair' do
   let(:test_data) { [1721, 979, 366, 299, 675, 1456] }
   let(:fixture) { File.join fixtures_path, 'day_01.data'}
   let(:fixture_data) { [] }
@@ -11,7 +11,7 @@ RSpec.describe "Report Repair" do
     end
   end
 
-  context 'Example 1' do
+  context 'Examples' do
     let(:model) { Day01.new test_data }
 
     it 'finds pair that equals 2020' do
@@ -23,7 +23,7 @@ RSpec.describe "Report Repair" do
     end
   end
 
-  context 'Exercise 1' do
+  context 'Exercises' do
     let(:model) { Day01.new fixture_data }
 
     it 'finds pair that equals 2020' do
