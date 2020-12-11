@@ -31,7 +31,7 @@ RSpec.describe 'Day 2: Password Philosophy' do
     end
 
     it 'finds actual valid passwords' do
-      expect(model.exercise2).to eq 706
+      expect(model.exercise2).to eq 272
     end
   end
 end
