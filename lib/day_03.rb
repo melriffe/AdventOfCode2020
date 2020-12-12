@@ -26,15 +26,15 @@ class Day03
   # read about once involving arboreal genetics and biome stability,
   # the same pattern repeats to the right many times"
   #
-  def exercise1
+  def exercise1 slope = Slope.new
     last_row = data.length - 1
     return 0 if last_row.zero?
 
     trees_encountered = 0
 
     # Slope of Travel
-    right = 3
-    down = 1
+    right = slope.right
+    down = slope.down
 
     current_col = current_row = 0
     edge = data.first.length
@@ -44,9 +44,9 @@ class Day03
       if ((current_col + right) >= edge)
         current_col = (current_col + right) - edge
       else
-        current_col += right  # right 3
+        current_col += right
       end
-      current_row += down   # down 1
+      current_row += down
 
       line = data[current_row]
       space = line[current_col]
@@ -58,4 +58,34 @@ class Day03
     trees_encountered
   end
 
+  ##
+  # Time to check several slopes and return the product of their values
+  #
+  def exercise2
+    slope = Slope.new right: 1
+    value = self.exercise1 slope
+
+    slope = Slope.new right: 3
+    value *= self.exercise1 slope
+
+    slope = Slope.new right: 5
+    value *= self.exercise1 slope
+
+    slope = Slope.new right: 7
+    value *= self.exercise1 slope
+
+    slope = Slope.new down: 2
+    value *= self.exercise1 slope
+
+    value
+  end
+end
+
+class Slope
+  attr_accessor :down, :right
+
+  def initialize right: 3, down: 1
+    self.right = right
+    self.down = down
+  end
 end
