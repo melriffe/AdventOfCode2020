@@ -78,38 +78,9 @@ RSpec.describe 'Day 3: Toboggan Trajectory' do
       end
     end
 
-    context 'with right 1 down 1 slope' do
-      it 'hits some trees' do
-        slope = Slope.new right: 1
-        expect(model.exercise1 slope).to eq 2
-      end
-    end
-
-    xcontext 'with right 5 down 1 slope' do
-      it 'hits some trees' do
-        slope = Slope.new right: 5
-        expect(model.exercise1 slope).to eq 3
-      end
-    end
-
-    xcontext 'with right 7 down 1 slope' do
-      it 'hits some trees' do
-        slope = Slope.new right: 7
-        expect(model.exercise1 slope).to eq 4
-      end
-    end
-
-    xcontext 'with right 1 down 2 slope' do
-      it 'hits some trees' do
-        slope = Slope.new down: 2
-        expect(model.exercise1 slope).to eq 2
-      end
-    end
-
-    xcontext 'with multiple slopes' do
+    context 'with multiple slopes' do
       it 'hits alot of trees' do
-        expect(model.exercise2).to eq 5478432750
-        # your answer is too low
+        expect(model.exercise2).to eq 5774564250
       end
     end
   end
