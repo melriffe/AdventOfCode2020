@@ -1,6 +1,6 @@
 ##
 # --- Day 3: Toboggan Trajectory ---
-# https://adventofcode.com/2020/day/23
+# https://adventofcode.com/2020/day/3
 #
 class Day03
   attr_accessor :data
