@@ -24,19 +24,20 @@ class Day04
   end
 
   def exercise2
-    0
+    parse_data true
+    passports.select { |passport| passport.valid? }.size
   end
 
   private
 
   attr_accessor :passports
 
-  def parse_data
+  def parse_data field_validation = false
     self.passports = []
     passports_fields = []
     data.each do |line|
       if line.chomp.length.zero?
-        self.passports << Passport.new( passports_fields )
+        self.passports << Passport.new( passports_fields, field_validation )
         passports_fields = []
       else
         passports_fields << line.chomp
@@ -47,8 +48,10 @@ class Day04
 end
 
 class Passport
-  def initialize field_data
+
+  def initialize field_data, field_validation = false
     self.parse_data field_data
+    self.field_validation = field_validation
   end
 
   # detecting which passports have all required fields; expected fields:
@@ -62,7 +65,11 @@ class Passport
   #   cid (Country ID)
   #
   def valid?
-    fields.size == 8 || (fields.size == 7 && cid_missing?)
+    if field_validation
+      required_fields_present? && present_fields_valid?
+    else
+      required_fields_present?
+    end
   end
 
   def cid_missing?
@@ -75,7 +82,7 @@ class Passport
 
   private
 
-  attr_accessor :fields
+  attr_accessor :fields, :field_validation
 
   def parse_data field_data
     self.fields = {}
@@ -83,9 +90,250 @@ class Passport
       associations = field_line.split(' ')
       associations.each do |association|
         parts = association.split(':')
-        self.fields[parts.first] = parts.last
+        self.fields[parts.first] = PassportField.new(parts.first, parts.last)
       end
     end
     self.fields
+  end
+
+  def required_fields_present?
+    fields.size == 8 || (fields.size == 7 && cid_missing?)
+  end
+
+  def present_fields_valid?
+    fields.each do |_, field|
+      return false unless field.valid?
+    end
+    true
+  end
+end
+
+class PassportField
+  attr_accessor :name, :value
+
+  def initialize name, value
+    self.name = name
+    self.value = value
+  end
+
+  def valid?
+    validator.valid?
+  end
+
+  def validator
+    @validator ||= PassportFieldValidator.validator(self)
+  end
+end
+
+##
+# Validation rules for the Passport Fields:
+#
+# byr (Birth Year) - four digits; at least 1920 and at most 2002.
+#
+class BirthYearValidator
+  attr_accessor :passport_field
+
+  def initialize passport_field, min = 1920, max = 2002
+    self.passport_field = passport_field
+    self.min = min
+    self.max = max
+  end
+
+  def valid?
+    value = passport_field.value
+    value.match(/\d{4}/) && (value.to_i <= max && value.to_i >= min)
+  end
+
+  private
+
+  attr_accessor :max, :min
+
+end
+
+##
+# Validation rules for the Passport Fields:
+#
+# iyr (Issue Year) - four digits; at least 2010 and at most 2020.
+#
+class IssueYearValidator
+  attr_accessor :passport_field
+
+  def initialize passport_field, min = 2010, max = 2020
+    self.passport_field = passport_field
+    self.min = min
+    self.max = max
+  end
+
+  def valid?
+    value = passport_field.value
+    value.match(/\d{4}/) && (value.to_i <= max && value.to_i >= min)
+  end
+
+  private
+
+  attr_accessor :max, :min
+
+end
+
+##
+# Validation rules for the Passport Fields:
+#
+# eyr (Expiration Year) - four digits; at least 2020 and at most 2030.
+#
+class ExpirationYearValidator
+  attr_accessor :passport_field
+
+  def initialize passport_field, min = 2020, max = 2030
+    self.passport_field = passport_field
+    self.min = min
+    self.max = max
+  end
+
+  def valid?
+    value = passport_field.value
+    value.match(/\d{4}/) && (value.to_i <= max && value.to_i >= min)
+  end
+
+  private
+
+  attr_accessor :max, :min
+
+end
+
+##
+# Validation rules for the Passport Fields:
+#
+# hgt (Height) - a number followed by either cm or in:
+#   If cm, the number must be at least 150 and at most 193.
+#   If in, the number must be at least 59 and at most 76.
+#
+class HeightValidator
+  attr_accessor :passport_field
+
+  def initialize passport_field
+    self.passport_field = passport_field
+  end
+
+  def valid?
+    value = passport_field.value
+    if value.match(/in$/)
+      return valid_imperial_value? value.to_i
+    elsif value.match(/cm$/)
+      return valid_metric_value? value.to_i
+    else
+      false
+    end
+  end
+
+  private
+
+  def valid_metric_value? value
+    value <= 193 && value >= 150
+  end
+
+  def valid_imperial_value? value
+    value <= 76 && value >= 59
+  end
+
+end
+
+##
+# Validation rules for the Passport Fields:
+#
+# hcl (Hair Color) - a # followed by exactly six characters 0-9 or a-f.
+#
+class HairColorValidator
+  attr_accessor :passport_field
+
+  def initialize passport_field
+    self.passport_field = passport_field
+  end
+
+  def valid?
+    value = passport_field.value
+    !value.match(/#([0-9]|[a-f]){6}$/).nil?
+  end
+
+end
+
+##
+# Validation rules for the Passport Fields:
+#
+# ecl (Eye Color) - exactly one of: amb blu brn gry grn hzl oth.
+#
+class EyeColorValidator
+  attr_accessor :passport_field
+
+  def initialize passport_field
+    self.passport_field = passport_field
+  end
+
+  def valid?
+    value = passport_field.value
+    valid_values.include? value
+  end
+
+  private
+
+  def valid_values
+    %w[ amb blu brn gry grn hzl oth ]
+  end
+
+end
+
+##
+# Validation rules for the Passport Fields:
+#
+# pid (Passport ID) - a nine-digit number, including leading zeroes.
+#
+class PassportIdValidator
+  attr_accessor :passport_field
+
+  def initialize passport_field
+    self.passport_field = passport_field
+  end
+
+  def valid?
+    value = passport_field.value
+    !value.match(/^[\d]{9}$/).nil?
+  end
+
+end
+
+##
+# Validation rules for the Passport Fields:
+#
+# cid (Country ID) - ignored, missing or not.
+#
+class CountryIdValidator
+  attr_accessor :passport_field
+
+  def initialize passport_field
+    self.passport_field = passport_field
+  end
+
+  def valid?
+    true
+  end
+
+end
+
+##
+# This class needs a better name.
+#
+class PassportFieldValidator
+  VALIDATORS = {
+    'byr' => ::BirthYearValidator,
+    'iyr' => ::IssueYearValidator,
+    'eyr' => ::ExpirationYearValidator,
+    'hgt' => ::HeightValidator,
+    'hcl' => ::HairColorValidator,
+    'ecl' => ::EyeColorValidator,
+    'pid' => ::PassportIdValidator,
+    'cid' => ::CountryIdValidator,
+  }
+
+  def self.validator passport_field
+    VALIDATORS[passport_field.name].new(passport_field)
   end
 end
