@@ -52,5 +52,9 @@ RSpec.describe 'Day 5: Binary Boarding' do
     it 'finds highest seat ID' do
       expect(model.exercise1).to eq 838
     end
+
+    it 'finds my seat ID' do
+      expect(model.exercise2).to eq 714
+    end
   end
 end

@@ -19,7 +19,15 @@ class Day05
   end
 
   def exercise2
-    0
+    parse_data
+    seat_ids = boarding_passes.collect { |bording_pass| bording_pass.seat_id }
+    seat_ids.sort!
+
+    seat_ids.each_with_index do |first, index|
+      second = seat_ids[index + 1]
+      return second - 1 if second - first == 2
+    end
+
   end
 
   private
