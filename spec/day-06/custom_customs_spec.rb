@@ -35,6 +35,10 @@ RSpec.describe 'Day 6: Custom Customs' do
     it 'finds sum of all yes answers' do
       expect(model.exercise1).to eq 11
     end
+
+    it 'finds some of unique yes answers' do
+      expect(model.exercise2).to eq 6
+    end
   end
 
   context 'Exercises' do
@@ -42,6 +46,10 @@ RSpec.describe 'Day 6: Custom Customs' do
 
     it 'finds sum of all yes answers' do
       expect(model.exercise1).to eq 6521
+    end
+
+    it 'finds some of unique yes answers' do
+      expect(model.exercise2).to eq 3305
     end
   end
 end
