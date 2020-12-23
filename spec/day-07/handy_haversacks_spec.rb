@@ -26,16 +26,24 @@ RSpec.describe 'Day 7: Handy Haversacks' do
   context 'Examples' do
     let(:model) { Day07.new test_data }
 
-    it 'finds bags that contain at least one shiny gold bag' do
+    it 'finds number of bags that contain at least one shiny gold bag' do
       expect(model.exercise1).to eq 4
+    end
+
+    it 'finds number of bags inside one shiny gold bag' do
+      expect(model.exercise2).to eq 32
     end
   end
 
   context 'Exercises' do
     let(:model) { Day07.new fixture_data }
 
-    it 'finds bags that contain at least one shiny gold bag' do
+    it 'finds number of bags that contain at least one shiny gold bag' do
       expect(model.exercise1).to eq 177
+    end
+
+    it 'finds number of bags inside one shiny gold bag' do
+      expect(model.exercise2).to eq 34988
     end
   end
 end

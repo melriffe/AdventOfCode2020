@@ -25,7 +25,9 @@ class Day07
   end
 
   def exercise2
-    0
+    parse_data
+    bag = luggage_policy.bag_called 'shiny-gold'
+    bag.enclosed_bags - 1
   end
 
   private
@@ -134,6 +136,14 @@ class Bag
       end
     end
     set
+  end
+
+  def enclosed_bags
+    count = 1
+    contains.each_pair do |bag, occurrences|
+      count = count + (occurrences * bag.enclosed_bags)
+    end
+    count
   end
 
   private
