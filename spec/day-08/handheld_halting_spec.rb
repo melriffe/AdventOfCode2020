@@ -29,6 +29,10 @@ RSpec.describe 'Day 8: Handheld Halting' do
     it 'finds value of accumulator before infinite loop' do
       expect(model.exercise1).to eq 5
     end
+
+    it 'finds value of accumulator after fixing instruction' do
+      expect(model.exercise2).to eq 8
+    end
   end
 
   context 'Exercises' do
@@ -36,6 +40,10 @@ RSpec.describe 'Day 8: Handheld Halting' do
 
     it 'finds value of accumulator before infinite loop' do
       expect(model.exercise1).to eq 1797
+    end
+
+    it 'finds value of accumulator after fixing instruction' do
+      expect(model.exercise2).to eq 1036
     end
   end
 end

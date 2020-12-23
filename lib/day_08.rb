@@ -20,6 +20,18 @@ class Day08
     cpu.accumulator.value
   end
 
+  def exercise2
+    cpu = Cpu.load data
+    cpu.instructions.length.times do |index|
+      cpu.toggle_instruction index
+      if cpu.run!
+        return cpu.accumulator.value
+      else
+        cpu.toggle_instruction index
+      end
+    end
+  end
+
 end
 
 class Accumulator
@@ -58,8 +70,16 @@ class Instruction
     executed
   end
 
+  def clear_executed!
+    self.executed = false
+  end
+
   def advancement
     1
+  end
+
+  def toggle_nop_jmp
+    self
   end
 
   private
@@ -80,10 +100,17 @@ class Jmp < Instruction
   def advancement
     argument
   end
+
+  def toggle_nop_jmp
+    NoOp.new( argument: argument, cpu: cpu)
+  end
 end
 
 class NoOp < Instruction
 
+  def toggle_nop_jmp
+    Jmp.new( argument: argument, cpu: cpu)
+  end
 end
 
 class Cpu
@@ -101,8 +128,6 @@ class Cpu
 
   def initialize boot_code
     add_instructions boot_code
-    self.accumulator = Accumulator.new
-    self.current_instruction = 0
   end
 
   def instructions
@@ -113,7 +138,14 @@ class Cpu
     self.current_instruction += index
   end
 
+  def toggle_instruction index
+    instructions[index] = instructions[index].toggle_nop_jmp
+  end
+
   def run!
+    self.accumulator = Accumulator.new
+    self.current_instruction = 0
+    instructions.map(&:clear_executed!)
     while(current_instruction < last_instruction)
       instruction = instructions[current_instruction]
       return false if instruction.executed?
