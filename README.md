@@ -31,3 +31,4 @@ I will organize by Days, as they are presented on the AoC website.
 * [Day 7: Handy Haversacks](https://adventofcode.com/2020/day/7)
 * [Day 8: Handheld Halting](https://adventofcode.com/2020/day/8)
 * [Day 9: Encoding Error](https://adventofcode.com/2020/day/9)
+* [Day 10: Adapter Array](https://adventofcode.com/2020/day/10)
