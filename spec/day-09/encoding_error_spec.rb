@@ -40,6 +40,10 @@ RSpec.describe 'Day 9: Encoding Error' do
     it 'finds first number that breaks XMAS cypher' do
       expect(model.exercise1 preamble: 5).to eq 127
     end
+
+    it 'finds encryption weakness in XMAS cypher' do
+      expect(model.exercise2 invalid_value: 127).to eq 62
+    end
   end
 
   context 'Exercises' do
@@ -47,6 +51,10 @@ RSpec.describe 'Day 9: Encoding Error' do
 
     it 'finds first number that breaks XMAS cypher' do
       expect(model.exercise1 preamble: 25).to eq 1721308972
+    end
+
+    it 'finds encryption weakness in XMAS cypher' do
+      expect(model.exercise2 invalid_value: 1721308972).to eq 209694133
     end
   end
 end

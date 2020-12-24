@@ -35,7 +35,28 @@ class Day09
     0
   end
 
-  def exercise2
+  def exercise2 invalid_value:
+    parse_data
+
+    index = 0
+    count = 1
+
+    while(index < encrypted_data.length)
+
+      until(encrypted_data[index, count].sum >= invalid_value)
+        count += 1
+      end
+
+      if encrypted_data[index, count].sum == invalid_value
+        min = encrypted_data[index, count].min
+        max = encrypted_data[index, count].max
+        return min + max
+      end
+
+      index += 1
+      count = 1
+    end
+
     0
   end
 
