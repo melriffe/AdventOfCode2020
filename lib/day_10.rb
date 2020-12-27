@@ -15,32 +15,12 @@ class Day10
 
   def exercise1
     parse_data
-
-    one_jolt_differences = 0
-    three_jolt_differences = 1
-
-    jotlage_rating = 0
-
-    adapters.sort.each do |rating|
-      case rating - jotlage_rating
-      when 1
-        one_jolt_differences += 1
-      when 2
-        # NOOP
-      when 3
-        three_jolt_differences += 1
-      else
-        # NOOP
-      end
-      jotlage_rating = rating
-    end
-
-    one_jolt_differences * three_jolt_differences
+    AdapterAnalyzer.joltage_differences adapters.sort
   end
 
   def exercise2
     parse_data
-    0
+    AdapterAnalyzer.distinct_arrangements adapters.sort
   end
 
   private
@@ -53,4 +33,64 @@ class Day10
       line.to_i
     end
   end
+end
+
+class AdapterAnalyzer
+
+  def self.joltage_differences adapters
+
+    ones = 0
+    threes = 1
+
+    jotlage_rating = 0
+
+    adapters.sort.each do |rating|
+      case rating - jotlage_rating
+      when 1
+        ones += 1
+      when 3
+        threes += 1
+      else
+        # NOOP
+      end
+      jotlage_rating = rating
+    end
+
+    ones * threes
+
+  end
+
+  def self.distinct_arrangements adapters
+    self.count adapters, from: 0, start_at: 0, memo: []
+  end
+
+  private
+
+  def self.count adapters, from:, start_at:, memo:
+    count = 0
+    size = adapters.length - 1
+
+    return 1 if size < start_at
+    return memo[start_at] unless memo[start_at].nil?
+
+    if from + 3 >= adapters[start_at]
+      count += self.count adapters, from: adapters[start_at], start_at: start_at + 1, memo: memo
+    end
+
+    if size >= start_at + 1
+      if from + 3 >= adapters[start_at + 1]
+        count += self.count adapters, from: adapters[start_at + 1], start_at: start_at + 2, memo: memo
+      end
+    end
+
+    if size >= start_at + 2
+      if from + 3 >= adapters[start_at + 2]
+        count += self.count adapters, from: adapters[start_at + 2], start_at: start_at + 3, memo: memo
+      end
+    end
+
+    memo[start_at] = count
+    count
+  end
+
 end
