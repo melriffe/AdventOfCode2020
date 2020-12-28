@@ -34,6 +34,32 @@ RSpec.describe 'Day 3: Toboggan Trajectory' do
       end
     end
 
+    context 'with multiple slopes' do
+      it 'hits alot of trees' do
+        expect(model.exercise2).to eq 336
+      end
+    end
+  end
+
+  context 'Exercises' do
+    let(:model) { Day03.new fixture_data }
+
+    context 'with right 3 down 1 slope' do
+      it 'hits some trees' do
+        expect(model.exercise1).to eq 294
+      end
+    end
+
+    context 'with multiple slopes' do
+      it 'hits alot of trees' do
+        expect(model.exercise2).to eq 5774564250
+      end
+    end
+  end
+
+  context 'Samples' do
+    let(:model) { Day03.new test_data }
+
     context 'with right 1 down 1 slope' do
       it 'hits some trees' do
         slope = Slope.new right: 1
@@ -59,28 +85,6 @@ RSpec.describe 'Day 3: Toboggan Trajectory' do
       it 'hits some trees' do
         slope = Slope.new down: 2
         expect(model.exercise1 slope).to eq 2
-      end
-    end
-
-    context 'with multiple slopes' do
-      it 'hits alot of trees' do
-        expect(model.exercise2).to eq 336
-      end
-    end
-  end
-
-  context 'Exercises' do
-    let(:model) { Day03.new fixture_data }
-
-    context 'with right 3 down 1 slope' do
-      it 'hits some trees' do
-        expect(model.exercise1).to eq 294
-      end
-    end
-
-    context 'with multiple slopes' do
-      it 'hits alot of trees' do
-        expect(model.exercise2).to eq 5774564250
       end
     end
   end

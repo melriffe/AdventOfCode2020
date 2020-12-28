@@ -211,6 +211,5 @@ RSpec.describe 'Day 11: Seating System' do
         end
       end
     end
-
   end
 end

@@ -26,6 +26,18 @@ RSpec.describe 'Day 5: Binary Boarding' do
     end
   end
 
+  context 'Exercises' do
+    let(:model) { Day05.new fixture_data }
+
+    it 'finds highest seat ID' do
+      expect(model.exercise1).to eq 838
+    end
+
+    it 'finds my seat ID' do
+      expect(model.exercise2).to eq 714
+    end
+  end
+
   context 'with BoardingPass' do
     let(:bording_pass) { BoardingPass.new code }
 
@@ -43,18 +55,6 @@ RSpec.describe 'Day 5: Binary Boarding' do
       it 'returns 357 for seat id' do
         expect(bording_pass.seat_id).to eq 357
       end
-    end
-  end
-
-  context 'Exercises' do
-    let(:model) { Day05.new fixture_data }
-
-    it 'finds highest seat ID' do
-      expect(model.exercise1).to eq 838
-    end
-
-    it 'finds my seat ID' do
-      expect(model.exercise2).to eq 714
     end
   end
 end
