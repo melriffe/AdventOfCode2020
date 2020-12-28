@@ -65,7 +65,7 @@ RSpec.describe 'Day 10: Adapter Array' do
     end
 
     it 'finds count of distinct adapter arrangements' do
-      expect(model.exercise2).to eq 19208
+      expect(model.exercise2).to eq 10578455953408
     end
   end
 end
