@@ -30,6 +30,10 @@ RSpec.describe 'Day 11: Seating System' do
     it 'finds number of empty seats' do
       expect(model.exercise1).to eq 37
     end
+
+    it 'finds number of empty seats' do
+      expect(model.exercise2).to eq 26
+    end
   end
 
   context 'Exercises' do
@@ -37,6 +41,10 @@ RSpec.describe 'Day 11: Seating System' do
 
     it 'finds number of empty seats' do
       expect(model.exercise1).to eq 2316
+    end
+
+    it 'finds number of empty seats' do
+      expect(model.exercise2).to eq 2128
     end
   end
 
@@ -95,105 +103,112 @@ RSpec.describe 'Day 11: Seating System' do
 
   describe SeatLayout do
     let(:seat_layout) { described_class.new test_data }
-    let(:upper_left) { Position.new 0, 0 }
-    let(:upper_right) { Position.new 0, 9 }
-    let(:lower_left) { Position.new 9, 0 }
-    let(:lower_right) { Position.new 9, 9 }
-    let(:upper_left_occupant) { seat_layout.occupant_at upper_left }
-    let(:upper_right_occupant) { seat_layout.occupant_at upper_right }
-    let(:lower_left_occupant) { seat_layout.occupant_at lower_left }
-    let(:lower_right_occupant) { seat_layout.occupant_at lower_right }
 
-    before do
-      count.times do
-        seat_layout.analyze
-        seat_layout.transition
-      end
-    end
-
-    context 'after 1 round' do
-      let(:count) { 1 }
-
-      it 'has 71 occupied seats' do
-        expect(seat_layout.occupied_seats).to eq 71
-      end
-
-      context 'with the corners' do
-        context 'when at 0, 0' do
-          it 'is occupied' do
-            expect(upper_left_occupant).to be_occupied
-          end
-        end
-        context 'when at 0, 9' do
-          it 'is occupied' do
-            expect(upper_right_occupant).to be_occupied
-          end
-        end
-        context 'when at 9, 0' do
-          it 'is occupied' do
-            expect(lower_left_occupant).to be_occupied
-          end
-        end
-        context 'when at 9, 9' do
-          it 'is occupied' do
-            expect(lower_right_occupant).to be_occupied
-          end
+    context 'with adjacent transition logic' do
+      before do
+        SeatLayoutTransitionLogic.instance.adjacent_logic!
+        count.times do
+          seat_layout.analyze
+          seat_layout.transition
         end
       end
-    end
 
-    context 'after 2 rounds' do
-      let(:count) { 2 }
+      context 'after 1 round' do
+        let(:count) { 1 }
 
-      it 'has 20 occupied seats' do
-        expect(seat_layout.occupied_seats).to eq 20
+        it 'has 71 occupied seats' do
+          expect(seat_layout.occupied_seats).to eq 71
+        end
       end
 
-      context 'with the corners' do
-        context 'when at 0, 0' do
-          it 'is occupied' do
-            expect(upper_left_occupant).to be_occupied
-          end
+      context 'after 2 rounds' do
+        let(:count) { 2 }
+
+        it 'has 20 occupied seats' do
+          expect(seat_layout.occupied_seats).to eq 20
         end
-        context 'when at 0, 9' do
-          it 'is occupied' do
-            expect(upper_right_occupant).to be_occupied
-          end
+      end
+
+      context 'after 3 rounds' do
+        let(:count) { 3 }
+
+        it 'has 51 occupied seats' do
+          expect(seat_layout.occupied_seats).to eq 51
         end
-        context 'when at 9, 0' do
-          it 'is occupied' do
-            expect(lower_left_occupant).to be_occupied
-          end
+      end
+
+      context 'after 4 rounds' do
+        let(:count) { 4 }
+
+        it 'has 30 occupied seats' do
+          expect(seat_layout.occupied_seats).to eq 30
         end
-        context 'when at 9, 9' do
-          it 'is occupied' do
-            expect(lower_right_occupant).to be_occupied
-          end
+      end
+
+      context 'after 5 rounds' do
+        let(:count) { 5 }
+
+        it 'has 37 occupied seats' do
+          expect(seat_layout.occupied_seats).to eq 37
         end
       end
     end
 
-    context 'after 3 rounds' do
-      let(:count) { 3 }
-
-      it 'has 51 occupied seats' do
-        expect(seat_layout.occupied_seats).to eq 51
+    context 'with first seat transition logic' do
+      before do
+        SeatLayoutTransitionLogic.instance.first_seat_logic!
+        count.times do
+          seat_layout.analyze
+          seat_layout.transition
+        end
       end
-    end
 
-    context 'after 4 rounds' do
-      let(:count) { 4 }
+      context 'after 1 round' do
+        let(:count) { 1 }
 
-      it 'has 30 occupied seats' do
-        expect(seat_layout.occupied_seats).to eq 30
+        it 'has 71 occupied seats' do
+          expect(seat_layout.occupied_seats).to eq 71
+        end
       end
-    end
 
-    context 'after 5 rounds' do
-      let(:count) { 5 }
+      context 'after 2 rounds' do
+        let(:count) { 2 }
 
-      it 'has 37 occupied seats' do
-        expect(seat_layout.occupied_seats).to eq 37
+        it 'has 7 occupied seats' do
+          expect(seat_layout.occupied_seats).to eq 7
+        end
+      end
+
+      context 'after 3 rounds' do
+        let(:count) { 3 }
+
+        it 'has 53 occupied seats' do
+          expect(seat_layout.occupied_seats).to eq 53
+        end
+      end
+
+      context 'after 4 rounds' do
+        let(:count) { 4 }
+
+        it 'has 18 occupied seats' do
+          expect(seat_layout.occupied_seats).to eq 18
+        end
+      end
+
+      context 'after 5 rounds' do
+        let(:count) { 5 }
+
+        it 'has 31 occupied seats' do
+          expect(seat_layout.occupied_seats).to eq 31
+        end
+      end
+
+      context 'after 6 rounds' do
+        let(:count) { 6 }
+
+        it 'has 26 occupied seats' do
+          expect(seat_layout.occupied_seats).to eq 26
+        end
       end
     end
 
