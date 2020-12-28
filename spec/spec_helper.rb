@@ -17,6 +17,9 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+
+  # Dump out a list of 3 slowest examples
+  config.profile_examples = 3
 end
 
 def fixtures_path
