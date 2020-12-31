@@ -25,7 +25,10 @@ class Day12
   end
 
   def exercise2
-    0
+    parse_data
+    ship = WaypointShip.new navigation_instructions
+    ship.sail!
+    ship.manhattan_distance
   end
 
   private
@@ -96,8 +99,8 @@ class ForwardMovement
     self.value = value
   end
 
-  def update location
-    location.forward value
+  def update navigation
+    navigation.forward value
   end
 end
 
@@ -112,8 +115,8 @@ class LeftRotation
     value / 90
   end
 
-  def update location
-    location.rotate_left steps
+  def update navigation
+    navigation.rotate_left steps
   end
 end
 
@@ -128,8 +131,8 @@ class RightRotation
     value / 90
   end
 
-  def update location
-    location.rotate_right steps
+  def update navigation
+    navigation.rotate_right steps
   end
 end
 
@@ -152,58 +155,10 @@ class Captain
   end
 end
 
-class Facing
-  # Indices      [   0    1    2    3    ]
-  DIRECTIONS = %i[ east south west north ]
-
-  def initialize key = 0
-    self.key = key
-  end
-
-  def direction
-    DIRECTIONS[key]
-  end
-
-  def update location, value
-    case direction
-    when :east
-      location.east value
-    when :south
-      location.south value
-    when :west
-      location.west value
-    when :north
-      location.north value
-    else
-      # NOOP
-    end
-  end
-
-  # east -> north -> west -> south -> east
-  def turn_left steps
-    value = key - steps
-    value = (4 + value).abs if value.negative?
-    self.key = value
-  end
-
-  # east -> south -> west -> north -> east
-  def turn_right steps
-    value = key + steps
-    value = (4 - value).abs if value >= 4
-    self.key = value
-  end
-
-  private
-
-  attr_accessor :key
-
-end
-
 class Location
   attr_reader :east_units, :west_units, :north_units, :south_units
 
-  def initialize facing
-    self.facing = facing
+  def initialize
     self.east_units = 0
     self.west_units = 0
     self.north_units = 0
@@ -262,25 +217,12 @@ class Location
     end
   end
 
-  def forward value
-    facing.update self, value
-  end
-
-  def rotate_left steps
-    facing.turn_left steps
-  end
-
-  def rotate_right steps
-    facing.turn_right steps
-  end
-
   def manhattan_distance
     horizontal_distance + vertical_distance
   end
 
   private
 
-  attr_accessor :facing
   attr_writer :east_units, :north_units, :south_units, :west_units
 
   def horizontal_distance
@@ -290,6 +232,90 @@ class Location
   def vertical_distance
     (north_units - south_units).abs
   end
+
+end
+
+class Navigation
+  extend Forwardable
+
+  # Indices      [   0    1    2    3    ]
+  DIRECTIONS = %i[ east south west north ]
+
+  attr_accessor :location
+
+  def initialize key = 0
+    self.location = Location.new
+    self.key = key
+  end
+
+  def apply command
+    if navigation_command? command
+      command.update self
+    else
+      location.update command
+    end
+  end
+
+  ##
+  # NOTE: Nasty Hack because of AoC.
+  #
+  def navigation_command? command
+    %w[ ForwardMovement LeftRotation RightRotation ].include? command.class.name
+  end
+
+  def direction
+    DIRECTIONS[key]
+  end
+
+  # ForwardMovement API
+  def forward value
+    self.update location, value
+  end
+
+  def update location, value
+    case direction
+    when :east
+      location.east value
+    when :south
+      location.south value
+    when :west
+      location.west value
+    when :north
+      location.north value
+    else
+      # NOOP
+    end
+  end
+
+  # LeftRotation API
+  def rotate_left steps
+    self.turn_left steps
+  end
+
+  # east -> north -> west -> south -> east
+  def turn_left steps
+    value = key - steps
+    value = (4 + value).abs if value.negative?
+    self.key = value
+  end
+
+  # RightRotation API
+  def rotate_right steps
+    self.turn_right steps
+  end
+
+  # east -> south -> west -> north -> east
+  def turn_right steps
+    value = key + steps
+    value = (4 - value).abs if value >= 4
+    self.key = value
+  end
+
+  delegate %i[manhattan_distance] => :location
+
+  private
+
+  attr_accessor :key
 
 end
 
@@ -305,29 +331,12 @@ class Engine
   end
 end
 
-class Navigation
-  attr_accessor :location
-
-  def initialize location
-    self.location = location
-  end
-
-  def apply command
-    location.update command
-  end
-end
-
 class Ship
   extend Forwardable
 
   def initialize navigation_instructions
-    self.facing = Facing.new
-
-    self.location = Location.new facing
-    self.navigation = Navigation.new location
-    self.engine = Engine.new navigation
-
     self.navigation_instructions = navigation_instructions
+    build_ship
   end
 
   def sail!
@@ -337,10 +346,36 @@ class Ship
     end
   end
 
-  delegate %i[manhattan_distance] => :location
+  delegate %i[manhattan_distance] => :navigation
+
+  protected
+
+  def build_ship
+    self.navigation = Navigation.new
+    self.engine = Engine.new navigation
+  end
 
   private
 
-  attr_accessor :engine, :facing, :location, :navigation, :navigation_instructions
+  attr_accessor :engine, :navigation, :navigation_instructions
+
+end
+
+class Waypoint
+
+end
+
+class WaypointNavigation
+
+end
+
+class WaypointShip < Ship
+
+  protected
+
+  def build_ship
+    self.navigation = WaypointNavigation.new
+    self.engine = Engine.new navigation
+  end
 
 end

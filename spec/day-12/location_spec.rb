@@ -2,9 +2,6 @@ require './lib/day_12'
 
 RSpec.describe Location do
 
-  let(:test_facing) { Facing.new }
-  subject { described_class.new test_facing }
-
   context '#manhattan_distance' do
     before do
       subject.east 17

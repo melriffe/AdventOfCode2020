@@ -1,6 +1,6 @@
 require './lib/day_12'
 
-RSpec.describe Facing do
+RSpec.describe Navigation do
 
   subject { described_class.new test_key }
 
