@@ -269,10 +269,6 @@ class Navigation
 
   # ForwardMovement API
   def forward value
-    self.update location, value
-  end
-
-  def update location, value
     case direction
     when :east
       location.east value
@@ -362,10 +358,228 @@ class Ship
 end
 
 class Waypoint
+  extend Forwardable
+
+  attr_reader :location
+
+  def initialize
+    initialize_waypoint_location
+  end
+
+  def update command
+    command.update self
+  end
+
+  def east value
+    location.east value
+    location_changed!
+  end
+
+  def west value
+    location.west value
+    location_changed!
+  end
+
+  def north value
+    location.north value
+    location_changed!
+  end
+
+  def south value
+    location.south value
+    location_changed!
+  end
+
+  # LeftRotation API
+  def rotate_left steps
+    self.location = Location.new
+    case steps
+    when 1 # location_left
+      location_left.each do |direction, value|
+        location.send(direction.to_sym, value)
+      end
+    when 2 # location_opposite
+      location_opposite.each do |direction, value|
+        location.send(direction.to_sym, value)
+      end
+    when 3 # location_right
+      location_right.each do |direction, value|
+        location.send(direction.to_sym, value)
+      end
+    else
+      raise 'Ka-Blam!'
+    end
+    location_changed!
+  end
+
+  # RightRotation API
+  def rotate_right steps
+    self.location = Location.new
+    case steps
+    when 1 # location_right
+      location_right.each do |direction, value|
+        location.send(direction.to_sym, value)
+      end
+    when 2 # location_opposite
+      location_opposite.each do |direction, value|
+        location.send(direction.to_sym, value)
+      end
+    when 3 # location_left
+      location_left.each do |direction, value|
+        location.send(direction.to_sym, value)
+      end
+    else
+      raise 'Ka-Blam!'
+    end
+    location_changed!
+  end
+
+  delegate %i[east_units west_units north_units south_units] => :location
+
+  private
+
+  attr_accessor :location_opposite, :location_right, :location_left
+  attr_writer :location
+
+  def initialize_waypoint_location
+    self.location = Location.new
+    location.east 10
+    location.north 1
+    location_changed!
+  end
+
+  ##
+  # Derive from this waypoint's location, it's opposite location and it's
+  # left & right locations. These will be determined to make 'rotation'
+  # easier.
+  #
+  # Example: For a location east 10, north 1
+  #   oppositie location is: west 10, south 1
+  #   right location is:     east 1, south 10
+  #   left location is:      west 1, north 10.
+  #
+  def location_changed!
+    east = location.east_units
+    west = location.west_units
+
+    north = location.north_units
+    south = location.south_units
+
+    # NOTE: expectation is 1 of the paired directions will be zero.
+    calculate_location_opposite east: east, west: west, north: north, south: south
+    calculate_location_right east: east, west: west, north: north, south: south
+    calculate_location_left
+  end
+
+  # Example: For a location east 10, north 1
+  #   oppositie location is: west 10, south 1
+  #
+  def calculate_location_opposite east:, west:, north:, south:
+    self.location_opposite = {}
+    if east.zero?
+      location_opposite[:east] = west
+    else
+      location_opposite[:west] = east
+    end
+
+    if north.zero?
+      location_opposite[:north] = south
+    else
+      location_opposite[:south] = north
+    end
+  end
+
+  # Example: For a location east 10, north 1
+  #   right location is:     east 1, south 10
+  #
+  def calculate_location_right east:, west:, north:, south:
+    self.location_right = {}
+    if east.zero? && north.zero?
+      location_right[:west] = south
+      location_right[:north] = west
+    elsif east.zero? && south.zero?
+      location_right[:east] = north
+      location_right[:north] = west
+    elsif west.zero? && north.zero?
+      location_right[:west] = south
+      location_right[:south] = east
+    else
+      location_right[:east] = north
+      location_right[:south] = east
+    end
+  end
+
+  # Example: For a location east 10, north 1
+  #   left location is:      west 1, north 10.
+  #
+  # NOTE: location left is opposite from location right
+  def calculate_location_left
+    self.location_left = {}
+    if location_right.key? :east
+      location_left[:west] = location_right[:east]
+    else
+      location_left[:east] = location_right[:west]
+    end
+
+    if location_right.key? :north
+      location_left[:south] = location_right[:north]
+    else
+      location_left[:north] = location_right[:south]
+    end
+  end
 
 end
 
 class WaypointNavigation
+  extend Forwardable
+
+  def initialize
+    self.waypoint = Waypoint.new
+    self.location = Location.new
+  end
+
+  def apply command
+    if navigation_command? command
+      command.update self
+    else
+      waypoint.update command
+    end
+  end
+
+  ##
+  # NOTE: Nasty Hack because of AoC.
+  #
+  def navigation_command? command
+    %w[ ForwardMovement ].include? command.class.name
+  end
+
+  # ForwardMovement API
+  def forward value
+    east = waypoint.east_units
+    west = waypoint.west_units
+
+    north = waypoint.north_units
+    south = waypoint.south_units
+
+    # NOTE: expectation is 1 of the paired directions will be zero.
+    if east.zero?
+      value.times { location.west west }
+    else
+      value.times { location.east east }
+    end
+
+    if north.zero?
+      value.times { location.south south }
+    else
+      value.times { location.north north }
+    end
+  end
+
+  delegate %i[manhattan_distance] => :location
+
+  private
+
+  attr_accessor :location, :waypoint
 
 end
 

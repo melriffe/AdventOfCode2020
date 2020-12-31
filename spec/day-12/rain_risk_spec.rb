@@ -26,7 +26,7 @@ RSpec.describe 'Day 12: Rain Risk' do
       expect(model.exercise1).to eq 25
     end
 
-    xit 'finds the Manhattan distance' do
+    it 'finds the Manhattan distance' do
       expect(model.exercise2).to eq 286
     end
   end
@@ -38,8 +38,8 @@ RSpec.describe 'Day 12: Rain Risk' do
       expect(model.exercise1).to eq 562
     end
 
-    xit 'finds the Manhattan distance' do
-      expect(model.exercise2).to eq 286
+    it 'finds the Manhattan distance' do
+      expect(model.exercise2).to eq 101860
     end
   end
 end
