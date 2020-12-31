@@ -449,7 +449,7 @@ class Waypoint
   end
 
   ##
-  # Derive from this waypoint's location, it's opposite location and it's
+  # Derive from this waypoint's location, its opposite location and its
   # left & right locations. These will be determined to make 'rotation'
   # easier.
   #
