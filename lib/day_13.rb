@@ -21,7 +21,16 @@ class Day13
   end
 
   def exercise2
-    0
+    parse_data
+    big_bus = busses.sort_by { |bus| bus.number }.last
+    time = -big_bus.delta
+    increment = big_bus.number
+    while(true)
+      time += increment
+      checks = busses.collect { |bus| bus.departure_time? time }
+      break if checks.all?
+    end
+    time
   end
 
   private
@@ -34,9 +43,9 @@ class Day13
       self.departure_time = line.to_i if index.zero?
       if index.positive?
         bus_ids = line.split(',')
-        bus_ids.delete('x')
-        bus_ids.each do |id|
-          busses << Bus.new( id.to_i, departure_time )
+        bus_ids.each_with_index do |id, index|
+          next if id == 'x'
+          busses << Bus.new( id.to_i, departure_time, index )
         end
       end
     end
@@ -46,13 +55,24 @@ end
 class Bus
   include Comparable
 
-  def initialize id, target_departure_time
+  attr_reader :delta
+
+  def initialize id, target_departure_time, delta = 0
     self.id = id
     self.target_departure_time = target_departure_time
+    self.delta = delta
+  end
+
+  def number
+    id
   end
 
   def <=>(other)
     earliest_departure_time <=> other.earliest_departure_time
+  end
+
+  def departure_time? target_time
+    ((target_time + delta) % id).zero?
   end
 
   def earliest_departure_time
@@ -66,6 +86,7 @@ class Bus
   private
 
   attr_accessor :id, :target_departure_time
+  attr_writer :delta
 
   def calculate_earliest_departure_time
     minutes = id
