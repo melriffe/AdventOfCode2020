@@ -24,6 +24,23 @@ RSpec.describe 'Day 14: Docking Data' do
     it 'finds sum of all values in memory' do
       expect(model.exercise1).to eq 165
     end
+
+    context 'with different test_data' do
+      let(:test_data) do
+        [
+          'mask = 000000000000000000000000000000X1001X',
+          'mem[42] = 100',
+          'mask = 00000000000000000000000000000000X0XX',
+          'mem[26] = 1',
+        ]
+      end
+
+      fit 'finds sum of all values in memory' do
+        expect(model.exercise2).to eq 208
+      end
+
+    end
+
   end
 
   context 'Exercises' do

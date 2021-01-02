@@ -17,6 +17,7 @@ class Day14
   end
 
   def exercise1
+    computer_simulator.mask = Mask.new
     computer_simulator.run!
     computer_simulator.memory_values.sum
   end
@@ -32,6 +33,10 @@ class Day14
   def parse_data
     self.computer_simulator = ComputerSimulator.new data
   end
+end
+
+class MaskV2
+
 end
 
 class Mask
@@ -91,9 +96,9 @@ class Memory
 end
 
 class ComputerSimulator
+  attr_accessor :mask
 
   def initialize program
-    self.mask = Mask.new
     self.memory = Memory.new
     self.program = program
   end
@@ -122,6 +127,6 @@ class ComputerSimulator
 
   private
 
-  attr_accessor :mask, :memory, :program
+  attr_accessor :memory, :program
 
 end
