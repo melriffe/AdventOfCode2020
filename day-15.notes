@@ -1,0 +1,66 @@
+starting numbers
+
+after which the rule kick in
+
+rules:
+
+- If that was the first time the number has been spoken, the current player says 0.
+
+- Otherwise, the number had been spoken before; the current player announces how many turns apart the number is from when it was previously spoken.
+
+So, after the starting numbers, each turn results in that player speaking aloud either 0 (if the last number is new) or an age (if the last number is a repeat).
+
+-------------------------------------------------------------------------------
+
+need to keep track of when a number is 'spoken'; on which turn was a number 'spoken'
+
+age only considers the last two times a number was spoken
+
+need to keep track of what number was 'spoken'
+
+-------------------------------------------------------------------------------
+
+0,3,6:
+
+Turn | Number | Reason
+ 1      0        starting number; spoken on turn 1
+ 2      3        starting number; spoken on turn 2
+ 3      6        starting number; spoken on turn 3; no more starting numbers; last number considered
+ 4      0        first time '6' is spoken; spoken on turn 4
+ 5      3        0 spoken before; difference between 4 & 1; spoken on turn 5
+ 6      3        3 spoken before; difference between 5 & 2; spoken on turn 6
+ 7      1        3 spoken before; difference between 6 & 5; spoken on turn 7
+ 8      0        first time '1' is spoken; spoken on turn 8
+ 9      4        0 spoken before; difference between 8 & 4; spoken on turn 9
+ 10     0        first time '4' is spoken; spoken on turn 10
+ 11     2        0 spoken before; difference between 10 & 8; spoken on turn 11
+ 12     0        first time '2' is spoken; spoken on turn 12
+ 13     2        0 spoken before; difference between 12 & 10; spoken on turn 13
+ 14     2        2 spoken before; difference between 13 & 11; spoken on turn 14
+ 15     1        2 spoken before; difference between 14 & 13; spoken on turn 15
+ 16     8        1 spoken before; difference between 15 & 7; spoken on turn 16
+ 17     0        first time '8' is spoken; spoken on turn 17
+ 18     5        0 spoken before; difference between 17 & 12; spoken on turn 18
+ 19     0        first time '5' is spoken; spoken on turn 19
+ 20     2        0 spoken before; difference between 19 & 17; spoken on turn 20
+
+-------------------------------------------------------------------------------
+
+the 'magic' happens after the starting numbers are 'spoken'. therefore, starting on turn (starting numbers size + 1), the last number spoken has to be considered to determine what number is spoken.
+
+turn 4 looks at turn 3
+turn 5 looks at turn 4
+turn 6 looks at turn 5
+etc
+
+starting numbers length = 3
+current turn; previous turn
+last_number_spoken
+
+
+MemoryGame.new start_numbers
+MemoryGame.start!
+MemoryGame.speak_number => [turn, number]
+
+turn, number = MemoryGame.speak_number
+break number if turn == 2020
