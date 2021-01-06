@@ -35,7 +35,7 @@ RSpec.describe 'Day 14: Docking Data' do
         ]
       end
 
-      fit 'finds sum of all values in memory' do
+      it 'finds sum of all values in memory' do
         expect(model.exercise2).to eq 208
       end
 
