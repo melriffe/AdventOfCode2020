@@ -118,16 +118,6 @@ Style/Documentation:
     - 'lib/day_15.rb'
     - 'lib/day_16.rb'
 
-# Offense count: 3
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: empty, nil, both
-Style/EmptyElse:
-  Exclude:
-    - 'lib/day_10.rb'
-    - 'lib/day_11.rb'
-    - 'lib/day_12.rb'
-
 # Offense count: 49
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.

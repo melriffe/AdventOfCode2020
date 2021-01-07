@@ -433,8 +433,6 @@ class SeatLayout
         when 'L'
           occupant = Seat.new
           occupant.add_observer(self)
-        else
-          # NOOP
         end
 
         position = Position.new column, row

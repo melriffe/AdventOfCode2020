@@ -49,8 +49,6 @@ class AdapterAnalyzer
         ones += 1
       when 3
         threes += 1
-      else
-        # NOOP
       end
       jotlage_rating = rating
     end

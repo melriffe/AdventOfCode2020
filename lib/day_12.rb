@@ -278,8 +278,6 @@ class Navigation
       location.west value
     when :north
       location.north value
-    else
-      # NOOP
     end
   end
 
