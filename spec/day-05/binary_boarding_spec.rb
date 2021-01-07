@@ -9,7 +9,7 @@ RSpec.describe 'Day 5: Binary Boarding' do
       'BBFFBBFRLL', # row 102, column 4, seat ID 820
     ]
   end
-  let(:fixture) { File.join fixtures_path, 'day_05.data'}
+  let(:fixture) { File.join fixtures_path, 'day_05.data' }
   let(:fixture_data) { [] }
 
   before do

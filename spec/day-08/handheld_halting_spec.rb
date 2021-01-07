@@ -14,7 +14,7 @@ RSpec.describe 'Day 8: Handheld Halting' do
       'acc +6',
     ]
   end
-  let(:fixture) { File.join fixtures_path, 'day_08.data'}
+  let(:fixture) { File.join fixtures_path, 'day_08.data' }
   let(:fixture_data) { [] }
 
   before do

@@ -9,7 +9,7 @@ RSpec.describe 'Day 14: Docking Data' do
       'mem[8] = 0'
     ]
   end
-  let(:fixture) { File.join fixtures_path, 'day_14.data'}
+  let(:fixture) { File.join fixtures_path, 'day_14.data' }
   let(:fixture_data) { [] }
 
   before do

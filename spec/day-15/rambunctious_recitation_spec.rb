@@ -6,7 +6,7 @@ RSpec.describe 'Day 15: Rambunctious Recitation' do
       '0,3,6'
     ]
   end
-  let(:fixture) { File.join fixtures_path, 'day_15.data'}
+  let(:fixture) { File.join fixtures_path, 'day_15.data' }
   let(:fixture_data) { [] }
 
   before do

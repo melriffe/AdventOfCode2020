@@ -20,7 +20,7 @@ RSpec.describe 'Day 6: Custom Customs' do
       'b'
     ]
   end
-  let(:fixture) { File.join fixtures_path, 'day_06.data'}
+  let(:fixture) { File.join fixtures_path, 'day_06.data' }
   let(:fixture_data) { [] }
 
   before do

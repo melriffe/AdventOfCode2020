@@ -2,7 +2,7 @@ require './lib/day_01'
 
 RSpec.describe 'Day 1: Report Repair' do
   let(:test_data) { [1721, 979, 366, 299, 675, 1456] }
-  let(:fixture) { File.join fixtures_path, 'day_01.data'}
+  let(:fixture) { File.join fixtures_path, 'day_01.data' }
   let(:fixture_data) { [] }
 
   before do

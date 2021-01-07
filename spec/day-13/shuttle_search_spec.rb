@@ -7,7 +7,7 @@ RSpec.describe 'Day 13: Shuttle Search' do
       '7,13,x,x,59,x,31,19'
     ]
   end
-  let(:fixture) { File.join fixtures_path, 'day_13.data'}
+  let(:fixture) { File.join fixtures_path, 'day_13.data' }
   let(:fixture_data) { [] }
 
   before do

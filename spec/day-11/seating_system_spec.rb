@@ -15,7 +15,7 @@ RSpec.describe 'Day 11: Seating System' do
       'L.LLLLL.LL'
     ]
   end
-  let(:fixture) { File.join fixtures_path, 'day_11.data'}
+  let(:fixture) { File.join fixtures_path, 'day_11.data' }
   let(:fixture_data) { [] }
 
   before do

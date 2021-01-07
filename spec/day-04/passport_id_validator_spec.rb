@@ -1,7 +1,7 @@
 require './lib/day_04'
 
 RSpec.describe PassportIdValidator do
-  let(:field) { PassportField.new '', ''}
+  let(:field) { PassportField.new '', '' }
   let(:validator) { PassportIdValidator.new field }
 
   context 'when value is 000000001' do

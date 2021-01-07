@@ -25,7 +25,7 @@ RSpec.describe 'Day 9: Encoding Error' do
       '576'
     ]
   end
-  let(:fixture) { File.join fixtures_path, 'day_09.data'}
+  let(:fixture) { File.join fixtures_path, 'day_09.data' }
   let(:fixture_data) { [] }
 
   before do

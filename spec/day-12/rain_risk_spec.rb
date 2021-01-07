@@ -10,7 +10,7 @@ RSpec.describe 'Day 12: Rain Risk' do
       'F11'
     ]
   end
-  let(:fixture) { File.join fixtures_path, 'day_12.data'}
+  let(:fixture) { File.join fixtures_path, 'day_12.data' }
   let(:fixture_data) { [] }
 
   before do

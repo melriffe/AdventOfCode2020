@@ -16,7 +16,7 @@ RSpec.describe 'Day 3: Toboggan Trajectory' do
       '.#..#...#.#',
     ]
   end
-  let(:fixture) { File.join fixtures_path, 'day_03.data'}
+  let(:fixture) { File.join fixtures_path, 'day_03.data' }
   let(:fixture_data) { [] }
 
   before do

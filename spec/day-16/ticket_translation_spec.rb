@@ -17,7 +17,7 @@ RSpec.describe 'Day 16: Ticket Translation' do
       '38,6,12',
     ]
   end
-  let(:fixture) { File.join fixtures_path, 'day_16.data'}
+  let(:fixture) { File.join fixtures_path, 'day_16.data' }
   let(:fixture_data) { [] }
 
   before do

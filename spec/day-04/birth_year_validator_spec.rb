@@ -1,11 +1,11 @@
 require './lib/day_04'
 
 RSpec.describe BirthYearValidator do
-  let(:field) { PassportField.new '', ''}
+  let(:field) { PassportField.new '', '' }
   let(:validator) { BirthYearValidator.new field }
 
   context 'when value is 2002' do
-    before { field.value = '2002'}
+    before { field.value = '2002' }
     it 'is valid' do
       expect(validator.valid?).to be true
     end

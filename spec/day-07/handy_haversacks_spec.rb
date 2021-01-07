@@ -14,7 +14,7 @@ RSpec.describe 'Day 7: Handy Haversacks' do
       'dotted black bags contain no other bags.'
     ]
   end
-  let(:fixture) { File.join fixtures_path, 'day_07.data'}
+  let(:fixture) { File.join fixtures_path, 'day_07.data' }
   let(:fixture_data) { [] }
 
   before do

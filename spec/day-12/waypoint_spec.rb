@@ -13,7 +13,7 @@ RSpec.describe Waypoint do
 
   context 'Turing Right' do
     context 'rotating 1 step' do
-      before { subject.rotate_right 1}
+      before { subject.rotate_right 1 }
 
       it 'has a 1 for east units' do
         expect(subject.east_units).to eq 1
@@ -51,7 +51,7 @@ RSpec.describe Waypoint do
 
   context 'Turning Left' do
     context 'rotating 1 step' do
-      before { subject.rotate_left 1}
+      before { subject.rotate_left 1 }
 
       it 'has a 1 for west units' do
         expect(subject.west_units).to eq 1
@@ -102,7 +102,7 @@ RSpec.describe Waypoint do
 
     context 'Turning Right' do
       context 'rotating 1 step' do
-        before { subject.rotate_right 1}
+        before { subject.rotate_right 1 }
 
         it 'has a 1 for east units' do
           expect(subject.east_units).to eq 1
@@ -140,7 +140,7 @@ RSpec.describe Waypoint do
 
     context 'Turning Left' do
       context 'rotating 1 step' do
-        before { subject.rotate_left 1}
+        before { subject.rotate_left 1 }
 
         it 'has a 1 for west units' do
           expect(subject.west_units).to eq 1

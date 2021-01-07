@@ -18,7 +18,7 @@ RSpec.describe 'Day 4: Passport Processing' do
       'iyr:2011 ecl:brn hgt:59in',
     ]
   end
-  let(:fixture) { File.join fixtures_path, 'day_04.data'}
+  let(:fixture) { File.join fixtures_path, 'day_04.data' }
   let(:fixture_data) { [] }
 
   before do
