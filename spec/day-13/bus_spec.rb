@@ -16,7 +16,7 @@ RSpec.describe Bus do
       expect(subject.waiting_time).to eq 42
     end
 
-    context '#departure_time?' do
+    describe '#departure_time?' do
       it 'is true for 1068781' do
         expect(subject.departure_time? 1068781).to be true
       end
@@ -39,7 +39,7 @@ RSpec.describe Bus do
       expect(subject.waiting_time).to eq 295
     end
 
-    context '#departure_time?' do
+    describe '#departure_time?' do
       it 'is true for 1068781' do
         expect(subject.departure_time? 1068781).to be true
       end

@@ -72,13 +72,6 @@ Performance/Count:
     - 'lib/day_04.rb'
     - 'lib/day_11.rb'
 
-# Offense count: 3
-# Cop supports --auto-correct.
-RSpec/ContextMethod:
-  Exclude:
-    - 'spec/day-12/location_spec.rb'
-    - 'spec/day-13/bus_spec.rb'
-
 # Offense count: 80
 # Configuration parameters: Prefixes.
 # Prefixes: when, with, without
