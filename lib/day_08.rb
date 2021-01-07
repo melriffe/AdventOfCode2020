@@ -157,7 +157,7 @@ class Cpu
   private
 
   attr_accessor :current_instruction, :last_instruction
-  attr_writer :accumulator,
+  attr_writer :accumulator
 
   def add_instructions boot_code
     boot_code.each do |line|
