@@ -10,6 +10,7 @@ RSpec.describe EyeColorValidator do
       expect(validator.valid?).to be true
     end
   end
+
   context 'when value is wat' do
     before { field.value = 'wat' }
     it 'is invalid' do
