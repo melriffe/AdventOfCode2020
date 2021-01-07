@@ -51,7 +51,6 @@ class Accumulator
 
 end
 
-
 class Instruction
   attr_accessor :argument, :cpu
 
