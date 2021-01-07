@@ -340,29 +340,6 @@ Style/TernaryParentheses:
   Exclude:
     - 'lib/day_02.rb'
 
-# Offense count: 8
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyleForMultiline.
-# SupportedStylesForMultiline: comma, consistent_comma, no_comma
-Style/TrailingCommaInArrayLiteral:
-  Exclude:
-    - 'spec/day-03/slope_spec.rb'
-    - 'spec/day-03/toboggan_trajectory_spec.rb'
-    - 'spec/day-04/passport_processing_spec.rb'
-    - 'spec/day-05/binary_boarding_spec.rb'
-    - 'spec/day-08/handheld_halting_spec.rb'
-    - 'spec/day-10/adapter_array_spec.rb'
-    - 'spec/day-14/docking_data_spec.rb'
-    - 'spec/day-16/ticket_translation_spec.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyleForMultiline.
-# SupportedStylesForMultiline: comma, consistent_comma, no_comma
-Style/TrailingCommaInHashLiteral:
-  Exclude:
-    - 'lib/day_04.rb'
-
 # Offense count: 3
 # Cop supports --auto-correct.
 # Configuration parameters: WordRegex.

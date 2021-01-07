@@ -15,7 +15,7 @@ RSpec.describe 'Day 4: Passport Processing' do
       'hgt:179cm',
       '',
       'hcl:#cfa07d eyr:2025 pid:166559648',
-      'iyr:2011 ecl:brn hgt:59in',
+      'iyr:2011 ecl:brn hgt:59in'
     ]
   end
   let(:fixture) { File.join fixtures_path, 'day_04.data' }

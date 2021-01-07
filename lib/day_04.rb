@@ -320,7 +320,7 @@ class PassportFieldValidator
     'hcl' => ::HairColorValidator,
     'ecl' => ::EyeColorValidator,
     'pid' => ::PassportIdValidator,
-    'cid' => ::CountryIdValidator,
+    'cid' => ::CountryIdValidator
   }
 
   def self.validator passport_field

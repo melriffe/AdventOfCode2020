@@ -33,7 +33,7 @@ RSpec.describe 'Day 10: Adapter Array' do
       '2',
       '34',
       '10',
-      '3',
+      '3'
     ]
   end
   let(:fixture) { File.join fixtures_path, 'day_10.data' }
