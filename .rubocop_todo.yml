@@ -6,19 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 75
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: space, no_space
-Layout/SpaceInsideParens:
-  Exclude:
-    - 'lib/day_03.rb'
-    - 'lib/day_04.rb'
-    - 'lib/day_08.rb'
-    - 'lib/day_11.rb'
-    - 'lib/day_13.rb'
-    - 'lib/day_14.rb'
-
 # Offense count: 8
 # Cop supports --auto-correct.
 Layout/SpaceInsidePercentLiteralDelimiters:

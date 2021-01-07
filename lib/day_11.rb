@@ -104,35 +104,35 @@ class Position
   end
 
   def upper_left
-    Position.new( PositionalLimits.up( column ), PositionalLimits.left( row ) )
+    Position.new(PositionalLimits.up(column), PositionalLimits.left(row))
   end
 
   def up
-    Position.new( PositionalLimits.up( column ), row )
+    Position.new(PositionalLimits.up(column), row)
   end
 
   def upper_right
-    Position.new( PositionalLimits.up( column ), PositionalLimits.right( row ) )
+    Position.new(PositionalLimits.up(column), PositionalLimits.right(row))
   end
 
   def left
-    Position.new( column, PositionalLimits.left( row ) )
+    Position.new(column, PositionalLimits.left(row))
   end
 
   def right
-    Position.new( column, PositionalLimits.right( row ) )
+    Position.new(column, PositionalLimits.right(row))
   end
 
   def lower_left
-    Position.new( PositionalLimits.down( column ), PositionalLimits.left( row ) )
+    Position.new(PositionalLimits.down(column), PositionalLimits.left(row))
   end
 
   def down
-    Position.new( PositionalLimits.down( column ), row )
+    Position.new(PositionalLimits.down(column), row)
   end
 
   def lower_right
-    Position.new( PositionalLimits.down( column ), PositionalLimits.right( row ) )
+    Position.new(PositionalLimits.down(column), PositionalLimits.right(row))
   end
 
   private
@@ -311,27 +311,27 @@ class SeatLayout
 
   def occupants_adjacent_to position
     adjacent_occupants = []
-    adjacent_occupants << self.occupant_at( position.left )
-    adjacent_occupants << self.occupant_at( position.upper_left )
-    adjacent_occupants << self.occupant_at( position.up )
-    adjacent_occupants << self.occupant_at( position.upper_right )
-    adjacent_occupants << self.occupant_at( position.right )
-    adjacent_occupants << self.occupant_at( position.lower_right )
-    adjacent_occupants << self.occupant_at( position.down )
-    adjacent_occupants << self.occupant_at( position.lower_left )
+    adjacent_occupants << self.occupant_at(position.left)
+    adjacent_occupants << self.occupant_at(position.upper_left)
+    adjacent_occupants << self.occupant_at(position.up)
+    adjacent_occupants << self.occupant_at(position.upper_right)
+    adjacent_occupants << self.occupant_at(position.right)
+    adjacent_occupants << self.occupant_at(position.lower_right)
+    adjacent_occupants << self.occupant_at(position.down)
+    adjacent_occupants << self.occupant_at(position.lower_left)
     adjacent_occupants.compact
   end
 
   def occupants_visible_from position
     visible_occupants = []
-    visible_occupants << self.first_seat_left(        position.left)
-    visible_occupants << self.first_seat_upper_left(  position.upper_left)
-    visible_occupants << self.first_seat_up(          position.up)
-    visible_occupants << self.first_seat_upper_right( position.upper_right)
-    visible_occupants << self.first_seat_right(       position.right)
-    visible_occupants << self.first_seat_lower_right( position.lower_right)
-    visible_occupants << self.first_seat_down(        position.down)
-    visible_occupants << self.first_seat_lower_left(  position.lower_left)
+    visible_occupants << self.first_seat_left(position.left)
+    visible_occupants << self.first_seat_upper_left(position.upper_left)
+    visible_occupants << self.first_seat_up(position.up)
+    visible_occupants << self.first_seat_upper_right(position.upper_right)
+    visible_occupants << self.first_seat_right(position.right)
+    visible_occupants << self.first_seat_lower_right(position.lower_right)
+    visible_occupants << self.first_seat_down(position.down)
+    visible_occupants << self.first_seat_lower_left(position.lower_left)
     visible_occupants.compact
   end
 

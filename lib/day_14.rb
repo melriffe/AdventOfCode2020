@@ -112,7 +112,7 @@ class ComputerSimulator
         parts = instruction.split(' = ')
         slot = parts.first.match(/\d+/)[0]
         input_value = parts.last.to_i
-        mask.apply( memory, slot: slot, input_value: input_value )
+        mask.apply(memory, slot: slot, input_value: input_value)
       end
     end
   end

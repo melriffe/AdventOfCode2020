@@ -97,13 +97,13 @@ class Jmp < Instruction
   end
 
   def toggle_nop_jmp
-    NoOp.new( argument: argument, cpu: cpu)
+    NoOp.new(argument: argument, cpu: cpu)
   end
 end
 
 class NoOp < Instruction
   def toggle_nop_jmp
-    Jmp.new( argument: argument, cpu: cpu)
+    Jmp.new(argument: argument, cpu: cpu)
   end
 end
 
@@ -159,7 +159,7 @@ class Cpu
       next if line.chomp.strip.length.zero?
 
       parts = line.split(' ')
-      self.instructions << OPCODES[parts.first].new( argument: parts.last.to_i, cpu: self )
+      self.instructions << OPCODES[parts.first].new(argument: parts.last.to_i, cpu: self)
     end
     self.last_instruction = boot_code.length
   end

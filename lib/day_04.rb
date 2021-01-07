@@ -37,7 +37,7 @@ class Day04
     passports_fields = []
     data.each do |line|
       if line.chomp.length.zero?
-        self.passports << Passport.new( passports_fields, field_validation )
+        self.passports << Passport.new(passports_fields, field_validation)
         passports_fields = []
       else
         passports_fields << line.chomp

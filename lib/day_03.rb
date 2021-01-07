@@ -26,7 +26,7 @@ class Day03
   # read about once involving arboreal genetics and biome stability,
   # the same pattern repeats to the right many times"
   #
-  def exercise1 slope = Slope.new( right: 3, down: 1)
+  def exercise1 slope = Slope.new(right: 3, down: 1)
     last_row = data.length - 1
     return 0 if last_row.zero?
 
