@@ -243,9 +243,7 @@ class Seat
   end
 
   def prepare_next_transition my_position, seat_layout
-    if state.transition_logic.should_transition? my_position, seat_layout
-      self.next_state = state.next_state.new
-    end
+    self.next_state = state.next_state.new if state.transition_logic.should_transition? my_position, seat_layout
   end
 
   def transition

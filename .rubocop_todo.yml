@@ -196,13 +196,6 @@ Style/IdenticalConditionalBranches:
   Exclude:
     - 'lib/day_15.rb'
 
-# Offense count: 2
-# Cop supports --auto-correct.
-Style/IfUnlessModifier:
-  Exclude:
-    - 'lib/day_09.rb'
-    - 'lib/day_11.rb'
-
 # Offense count: 150
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.

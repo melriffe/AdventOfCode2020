@@ -25,9 +25,7 @@ class Day09
       preamble_start = preamble_stop - preamble_size
       data = encrypted_data[preamble_start, preamble_size]
 
-      unless contains_addends? data[preamble], data[0, preamble]
-        return data[preamble]
-      end
+      return data[preamble] unless contains_addends? data[preamble], data[0, preamble]
 
       preamble_stop += 1
     end
