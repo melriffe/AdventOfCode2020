@@ -38,9 +38,7 @@ RSpec.describe 'Day 14: Docking Data' do
       xit 'finds sum of all values in memory' do
         expect(model.exercise2).not_to be_zero
       end
-
     end
-
   end
 
   context 'Exercises' do

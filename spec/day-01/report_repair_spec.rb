@@ -33,6 +33,5 @@ RSpec.describe 'Day 1: Report Repair' do
     it 'finds trio that equals 2020' do
       expect(model.exercise2).to eq 248607374
     end
-
   end
 end

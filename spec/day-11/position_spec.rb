@@ -1,7 +1,6 @@
 require './lib/day_11'
 
 RSpec.describe Position do
-
   before do
     PositionalLimits.max_col = 9
     PositionalLimits.max_row = 9

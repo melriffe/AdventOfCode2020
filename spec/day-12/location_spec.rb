@@ -1,7 +1,6 @@
 require './lib/day_12'
 
 RSpec.describe Location do
-
   context '#manhattan_distance' do
     before do
       subject.east 17

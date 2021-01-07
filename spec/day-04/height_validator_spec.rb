@@ -1,7 +1,6 @@
 require './lib/day_04'
 
 RSpec.describe HeightValidator do
-
   let(:field) { PassportField.new '', ''}
   let(:validator) { HeightValidator.new field }
 

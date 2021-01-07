@@ -6,34 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 1
-# Cop supports --auto-correct.
-Layout/EmptyLines:
-  Exclude:
-    - 'lib/day_08.rb'
-
-# Offense count: 24
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: empty_lines, no_empty_lines
-Layout/EmptyLinesAroundBlockBody:
-  Exclude:
-    - 'spec/day-01/report_repair_spec.rb'
-    - 'spec/day-04/birth_year_validator_spec.rb'
-    - 'spec/day-04/eye_color_validator.rb'
-    - 'spec/day-04/hair_color_validator_spec.rb'
-    - 'spec/day-04/height_validator_spec.rb'
-    - 'spec/day-04/passport_id_validator_spec.rb'
-    - 'spec/day-04/password_field_validation_spec.rb'
-    - 'spec/day-05/boarding_pass_spec.rb'
-    - 'spec/day-11/position_spec.rb'
-    - 'spec/day-12/location_spec.rb'
-    - 'spec/day-12/navigation_spec.rb'
-    - 'spec/day-12/waypoint_spec.rb'
-    - 'spec/day-13/bus_spec.rb'
-    - 'spec/day-14/docking_data_spec.rb'
-    - 'spec/day-16/rule_spec.rb'
-
 # Offense count: 55
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.

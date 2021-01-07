@@ -1,7 +1,6 @@
 require './lib/day_04'
 
 RSpec.describe BirthYearValidator do
-
   let(:field) { PassportField.new '', ''}
   let(:validator) { BirthYearValidator.new field }
 

@@ -1,7 +1,6 @@
 require './lib/day_16'
 
 RSpec.describe Rule do
-
   subject { described_class.new specification}
 
   let(:specification) { 'arrival platform: 49-746 or 772-955' }

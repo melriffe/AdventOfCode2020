@@ -1,7 +1,6 @@
 require './lib/day_12'
 
 RSpec.describe Navigation do
-
   subject { described_class.new test_key }
 
   context 'with intial facing of :east' do
@@ -12,7 +11,6 @@ RSpec.describe Navigation do
     end
 
     context 'when turning left' do
-
       it 'faces north with 1 turn' do
         subject.turn_left 1
         expect(subject.direction).to eq :north
@@ -30,7 +28,6 @@ RSpec.describe Navigation do
     end
 
     context 'when turning right' do
-
       it 'faces south with 1 turn' do
         subject.turn_right 1
         expect(subject.direction).to eq :south
@@ -56,7 +53,6 @@ RSpec.describe Navigation do
     end
 
     context 'when turning left' do
-
       it 'faces east with 1 turn' do
         subject.turn_left 1
         expect(subject.direction).to eq :east
@@ -74,7 +70,6 @@ RSpec.describe Navigation do
     end
 
     context 'when turning right' do
-
       it 'faces west with 1 turn' do
         subject.turn_right 1
         expect(subject.direction).to eq :west
@@ -100,7 +95,6 @@ RSpec.describe Navigation do
     end
 
     context 'when turning left' do
-
       it 'faces south with 1 turn' do
         subject.turn_left 1
         expect(subject.direction).to eq :south
@@ -118,7 +112,6 @@ RSpec.describe Navigation do
     end
 
     context 'when turning right' do
-
       it 'faces north with 1 turn' do
         subject.turn_right 1
         expect(subject.direction).to eq :north
@@ -144,7 +137,6 @@ RSpec.describe Navigation do
     end
 
     context 'when turning left' do
-
       it 'faces west with 1 turn' do
         subject.turn_left 1
         expect(subject.direction).to eq :west
@@ -162,7 +154,6 @@ RSpec.describe Navigation do
     end
 
     context 'when turning right' do
-
       it 'faces east with 1 turn' do
         subject.turn_right 1
         expect(subject.direction).to eq :east

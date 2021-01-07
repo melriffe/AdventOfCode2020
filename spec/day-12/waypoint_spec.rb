@@ -1,7 +1,6 @@
 require './lib/day_12'
 
 RSpec.describe Waypoint do
-
   context 'Initial Location' do
     it 'starts at 10 units east' do
       expect(subject.east_units).to eq 10

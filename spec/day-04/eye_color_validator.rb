@@ -1,7 +1,6 @@
 require './lib/day_04'
 
 RSpec.describe EyeColorValidator do
-
   let(:field) { PassportField.new '', ''}
   let(:validator) { EyeColorValidator.new field }
 

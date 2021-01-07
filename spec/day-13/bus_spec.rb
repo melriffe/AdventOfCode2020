@@ -1,7 +1,6 @@
 require './lib/day_13'
 
 RSpec.describe Bus do
-
   subject { described_class.new bus_id, departure_time, delta }
   let(:departure_time) { 939 }
 

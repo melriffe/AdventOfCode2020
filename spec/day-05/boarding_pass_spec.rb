@@ -1,7 +1,6 @@
 require './lib/day_05'
 
 RSpec.describe BoardingPass do
-
   let(:bording_pass) { BoardingPass.new code }
 
   context 'when code is FBFBBFFRLR' do

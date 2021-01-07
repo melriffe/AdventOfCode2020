@@ -1,7 +1,6 @@
 require './lib/day_04'
 
 RSpec.describe 'with Password Field Validation' do
-
   it 'finds invalid passport 1' do
     data = ['eyr:1972 cid:100', 'hcl:#18171d ecl:amb hgt:170 pid:186cm iyr:2018 byr:1926']
     passport = Passport.new data, true
