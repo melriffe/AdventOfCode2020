@@ -42,7 +42,7 @@ class Day07
       next if line.chomp.strip.length.zero?
 
       rule = LineParser.parse line
-      rule.each_pair do |name,  enclosed_bags|
+      rule.each_pair do |name, enclosed_bags|
         bag = luggage_policy.bag_called name
         enclosed_bags.each do |enclosed_bag|
           enclosed_bag.each_pair do |_name, quantity|
