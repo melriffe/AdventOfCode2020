@@ -55,7 +55,7 @@ RSpec.describe Bus do
     let(:bus2) { described_class.new 59, 939 }
 
     it 'sorts by :earliest_departure_time' do
-      array = [ bus1, bus2 ]
+      array = [bus1, bus2]
       expect(array.sort.first).to eq bus2
     end
   end

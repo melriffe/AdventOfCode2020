@@ -1,7 +1,7 @@
 require './lib/day_02'
 
 RSpec.describe 'Day 2: Password Philosophy' do
-  let(:test_data) { ['1-3 a: abcde', '1-3 b: cdefg', '2-9 c: ccccccccc' ] }
+  let(:test_data) { ['1-3 a: abcde', '1-3 b: cdefg', '2-9 c: ccccccccc'] }
   let(:fixture) { File.join fixtures_path, 'day_02.data'}
   let(:fixture_data) { [] }
 
