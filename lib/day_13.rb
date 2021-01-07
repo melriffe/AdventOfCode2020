@@ -69,7 +69,7 @@ class Bus
     id
   end
 
-  def <=>(other)
+  def <=> other
     earliest_departure_time <=> other.earliest_departure_time
   end
 

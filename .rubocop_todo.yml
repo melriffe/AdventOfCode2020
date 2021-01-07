@@ -130,13 +130,6 @@ Style/IdenticalConditionalBranches:
   Exclude:
     - 'lib/day_15.rb'
 
-# Offense count: 150
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: require_parentheses, require_no_parentheses, require_no_parentheses_except_multiline
-Style/MethodDefParentheses:
-  Enabled: false
-
 # Offense count: 22
 # Cop supports --auto-correct.
 # Configuration parameters: Strict.
