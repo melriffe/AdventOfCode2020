@@ -408,7 +408,7 @@ class SeatLayout
 
   def transition
     changed_seats.clear
-    positions.each do |position, occupant|
+    positions.each do |_position, occupant|
       occupant.transition
     end
   end

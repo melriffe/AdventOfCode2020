@@ -30,13 +30,6 @@ Lint/UnderscorePrefixedVariableName:
 
 # Offense count: 1
 # Cop supports --auto-correct.
-# Configuration parameters: IgnoreEmptyBlocks, AllowUnusedKeywordArguments.
-Lint/UnusedBlockArgument:
-  Exclude:
-    - 'lib/day_11.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
 # Configuration parameters: ContextCreatingMethods, MethodCreatingMethods.
 Lint/UselessAccessModifier:
   Exclude:
