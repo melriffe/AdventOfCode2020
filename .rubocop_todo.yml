@@ -198,17 +198,6 @@ Style/IdenticalConditionalBranches:
 Style/MethodDefParentheses:
   Enabled: false
 
-# Offense count: 15
-# Cop supports --auto-correct.
-# Configuration parameters: AllowedMethods.
-# AllowedMethods: be, be_a, be_an, be_between, be_falsey, be_kind_of, be_instance_of, be_truthy, be_within, eq, eql, end_with, include, match, raise_error, respond_to, start_with
-Style/NestedParenthesizedCalls:
-  Exclude:
-    - 'spec/day-03/slope_spec.rb'
-    - 'spec/day-09/encoding_error_spec.rb'
-    - 'spec/day-13/bus_spec.rb'
-    - 'spec/day-16/rule_spec.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, MinBodyLength.

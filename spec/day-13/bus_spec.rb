@@ -19,11 +19,11 @@ RSpec.describe Bus do
 
     describe '#departure_time?' do
       it 'is true for 1068781' do
-        expect(subject.departure_time? 1068781).to be true
+        expect(subject.departure_time?(1068781)).to be true
       end
 
       it 'is false for 1068780' do
-        expect(subject.departure_time? 1068780).not_to be true
+        expect(subject.departure_time?(1068780)).not_to be true
       end
     end
   end
@@ -42,11 +42,11 @@ RSpec.describe Bus do
 
     describe '#departure_time?' do
       it 'is true for 1068781' do
-        expect(subject.departure_time? 1068781).to be true
+        expect(subject.departure_time?(1068781)).to be true
       end
 
       it 'is false for 1068780' do
-        expect(subject.departure_time? 1068780).not_to be true
+        expect(subject.departure_time?(1068780)).not_to be true
       end
     end
   end
