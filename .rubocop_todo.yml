@@ -42,14 +42,6 @@ Naming/AccessorMethodName:
   Exclude:
     - 'lib/day_15.rb'
 
-# Offense count: 7
-# Cop supports --auto-correct.
-Performance/Count:
-  Exclude:
-    - 'lib/day_02.rb'
-    - 'lib/day_04.rb'
-    - 'lib/day_11.rb'
-
 # Offense count: 77
 # Configuration parameters: Prefixes.
 # Prefixes: when, with, without

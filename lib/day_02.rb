@@ -29,7 +29,7 @@ class Day02
   #
   def exercise1
     parse_data MinMaxValidator
-    validators.select { |validator| validator.valid? }.size
+    validators.count { |validator| validator.valid? }
   end
 
   ##
@@ -45,7 +45,7 @@ class Day02
   #
   def exercise2
     parse_data PositionalValidator
-    validators.select { |validator| validator.valid? }.size
+    validators.count { |validator| validator.valid? }
   end
 
   private
