@@ -39,14 +39,14 @@ class Day03
     current_col = current_row = 0
     edge = data.first.length
 
-    while (current_row <= last_row)
+    while current_row <= last_row
 
       line = data[current_row]
       space = line[current_col]
 
       trees_encountered += 1 if space == '#'
 
-      if ((current_col + right) >= edge)
+      if (current_col + right) >= edge
         current_col = (current_col + right) - edge
       else
         current_col += right

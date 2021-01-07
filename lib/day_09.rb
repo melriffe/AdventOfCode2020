@@ -21,7 +21,7 @@ class Day09
 
     preamble_size = preamble + 1
     preamble_stop = preamble_size
-    while (preamble_stop < encrypted_data.length)
+    while preamble_stop < encrypted_data.length
       preamble_start = preamble_stop - preamble_size
       data = encrypted_data[preamble_start, preamble_size]
 
@@ -39,9 +39,9 @@ class Day09
     index = 0
     count = 1
 
-    while (index < encrypted_data.length)
+    while index < encrypted_data.length
 
-      count += 1 until (encrypted_data[index, count].sum >= invalid_value)
+      count += 1 until encrypted_data[index, count].sum >= invalid_value
 
       if encrypted_data[index, count].sum == invalid_value
         min = encrypted_data[index, count].min

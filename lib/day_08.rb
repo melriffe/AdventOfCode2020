@@ -140,7 +140,7 @@ class Cpu
     self.accumulator = Accumulator.new
     self.current_instruction = 0
     instructions.map(&:clear_executed!)
-    while (current_instruction < last_instruction)
+    while current_instruction < last_instruction
       instruction = instructions[current_instruction]
       return false if instruction.executed?
 

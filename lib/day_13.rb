@@ -25,7 +25,7 @@ class Day13
     big_bus = busses.sort_by { |bus| bus.number }.last
     time = -big_bus.delta
     increment = big_bus.number
-    while (true)
+    while true
       time += increment
       checks = busses.collect { |bus| bus.departure_time? time }
       break if checks.all?
@@ -90,7 +90,7 @@ class Bus
 
   def calculate_earliest_departure_time
     minutes = id
-    minutes += id while (minutes < target_departure_time)
+    minutes += id while minutes < target_departure_time
     minutes
   end
 
