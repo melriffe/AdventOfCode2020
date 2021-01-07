@@ -91,9 +91,7 @@ class Bus
 
   def calculate_earliest_departure_time
     minutes = id
-    while (minutes < target_departure_time)
-      minutes += id
-    end
+    minutes += id while (minutes < target_departure_time)
     minutes
   end
 

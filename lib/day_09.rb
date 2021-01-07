@@ -41,9 +41,7 @@ class Day09
 
     while (index < encrypted_data.length)
 
-      until (encrypted_data[index, count].sum >= invalid_value)
-        count += 1
-      end
+      count += 1 until (encrypted_data[index, count].sum >= invalid_value)
 
       if encrypted_data[index, count].sum == invalid_value
         min = encrypted_data[index, count].min
