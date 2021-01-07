@@ -37,11 +37,6 @@ Metrics/MethodLength:
 Metrics/PerceivedComplexity:
   Max: 11
 
-# Offense count: 1
-Naming/AccessorMethodName:
-  Exclude:
-    - 'lib/day_15.rb'
-
 # Offense count: 77
 # Configuration parameters: Prefixes.
 # Prefixes: when, with, without

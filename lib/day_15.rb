@@ -57,7 +57,7 @@ class MemoryGame
 
   def speak_number
     advance_turn_keeper
-    get_next_number
+    determine_next_number
 
     [turn, next_number]
   end
@@ -70,7 +70,7 @@ class MemoryGame
     self.turn += 1
   end
 
-  def get_next_number
+  def determine_next_number
     if consider_last_number_spoken?
       self.next_number = consider_last_number
       self.last_number = next_number
