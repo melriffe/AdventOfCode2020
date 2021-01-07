@@ -94,12 +94,6 @@ RSpec/RepeatedDescription:
     - 'spec/day-11/seating_system_spec.rb'
     - 'spec/day-12/rain_risk_spec.rb'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/CaseLikeIf:
-  Exclude:
-    - 'lib/day_04.rb'
-
 # Offense count: 4
 Style/ClassVars:
   Exclude:
