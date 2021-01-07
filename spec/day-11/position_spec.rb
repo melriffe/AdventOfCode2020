@@ -11,11 +11,11 @@ RSpec.describe Position do
 
     context 'with #upper_left' do
       it 'returns expected column value' do
-        expect(position.upper_left.column).to eq -1
+        expect(position.upper_left.column).to eq(-1)
       end
 
       it 'returns expected row value' do
-        expect(position.upper_left.row).to eq -1
+        expect(position.upper_left.row).to eq(-1)
       end
     end
 
