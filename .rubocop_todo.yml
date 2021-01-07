@@ -198,14 +198,6 @@ Style/IdenticalConditionalBranches:
 Style/MethodDefParentheses:
   Enabled: false
 
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, MinBodyLength.
-# SupportedStyles: skip_modifier_ifs, always
-Style/Next:
-  Exclude:
-    - 'lib/day_13.rb'
-
 # Offense count: 22
 # Cop supports --auto-correct.
 # Configuration parameters: Strict.

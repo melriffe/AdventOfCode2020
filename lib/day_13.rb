@@ -41,13 +41,12 @@ class Day13
     self.busses = []
     data.each_with_index do |line, index|
       self.departure_time = line.to_i if index.zero?
-      if index.positive?
-        bus_ids = line.split(',')
-        bus_ids.each_with_index do |id, index|
-          next if id == 'x'
+      next unless index.positive?
+      bus_ids = line.split(',')
+      bus_ids.each_with_index do |id, index|
+        next if id == 'x'
 
-          busses << Bus.new(id.to_i, departure_time, index)
-        end
+        busses << Bus.new(id.to_i, departure_time, index)
       end
     end
   end
