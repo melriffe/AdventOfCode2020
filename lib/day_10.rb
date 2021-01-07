@@ -62,8 +62,6 @@ class AdapterAnalyzer
     self.count adapters, from: 0, start_at: 0, memo: []
   end
 
-  private
-
   def self.count adapters, from:, start_at:, memo:
     count = 0
     size = adapters.length - 1

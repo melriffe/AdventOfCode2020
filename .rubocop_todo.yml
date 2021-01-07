@@ -28,13 +28,6 @@ Lint/UnderscorePrefixedVariableName:
   Exclude:
     - 'lib/day_07.rb'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: ContextCreatingMethods, MethodCreatingMethods.
-Lint/UselessAccessModifier:
-  Exclude:
-    - 'lib/day_10.rb'
-
 # Offense count: 19
 # Configuration parameters: IgnoredMethods, CountRepeatedAttributes.
 Metrics/AbcSize:
