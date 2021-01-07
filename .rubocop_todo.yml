@@ -99,12 +99,6 @@ RSpec/DescribedClass:
     - 'spec/day-11/position_spec.rb'
 
 # Offense count: 1
-# Cop supports --auto-correct.
-RSpec/EmptyLineAfterSubject:
-  Exclude:
-    - 'spec/day-13/bus_spec.rb'
-
-# Offense count: 1
 # Configuration parameters: Max.
 RSpec/ExampleLength:
   Exclude:
