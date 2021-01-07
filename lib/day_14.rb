@@ -62,12 +62,12 @@ class Mask
   end
 
   def update_or_operand
-    or_mask = mask.gsub('X', '0')
+    or_mask = mask.tr('X', '0')
     self.or_operand = or_mask.to_i(2)
   end
 
   def update_and_operand
-    and_mask = mask.gsub('X', '1')
+    and_mask = mask.tr('X', '1')
     self.and_operand = and_mask.to_i(2)
   end
 end

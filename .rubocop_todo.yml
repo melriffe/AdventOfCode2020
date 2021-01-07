@@ -72,12 +72,6 @@ Performance/Count:
     - 'lib/day_04.rb'
     - 'lib/day_11.rb'
 
-# Offense count: 2
-# Cop supports --auto-correct.
-Performance/StringReplacement:
-  Exclude:
-    - 'lib/day_14.rb'
-
 # Offense count: 3
 # Cop supports --auto-correct.
 RSpec/ContextMethod:
