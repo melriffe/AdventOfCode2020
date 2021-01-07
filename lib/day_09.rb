@@ -74,7 +74,7 @@ class Day09
 
   def contains_addends? sum, addends
     addends.each_with_index do |first, index|
-      addends.slice(index+1, addends.length).each do |second|
+      addends.slice(index + 1, addends.length).each do |second|
         return true if first + second == sum
       end
     end
