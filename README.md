@@ -48,5 +48,5 @@ To be completed:
 ----
 
 To be submitted:
-* [Day 13: Shuttle Search](https://adventofcode.com/2020/day/13#part2)
+* [Day 13, part two](https://adventofcode.com/2020/day/13#part2)
   The program takes a long time to run. I've yet to run it to completion.
