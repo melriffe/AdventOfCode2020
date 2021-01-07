@@ -72,15 +72,6 @@ Performance/Count:
     - 'lib/day_04.rb'
     - 'lib/day_11.rb'
 
-# Offense count: 7
-# Cop supports --auto-correct.
-Performance/RegexpMatch:
-  Exclude:
-    - 'lib/day_04.rb'
-    - 'lib/day_07.rb'
-    - 'lib/day_14.rb'
-    - 'lib/day_16.rb'
-
 # Offense count: 2
 # Cop supports --auto-correct.
 Performance/StringReplacement:

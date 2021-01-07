@@ -48,7 +48,7 @@ class Day16
     ticket_specifications = data.slice!((0..empty_line_index))
     ticket_specifications.each do |line|
       next if line.strip.length.zero?
-      next if line =~ /ticket/
+      next if /ticket/.match?(line)
 
       field_values = line.split(',')
       field_values.each do |value|
@@ -60,7 +60,7 @@ class Day16
     self.nearby_tickets = []
     data.each do |line|
       next if line.strip.length.zero?
-      next if line =~ /ticket/
+      next if /ticket/.match?(line)
 
       ticket = Ticket.new
       field_values = line.split(',')

@@ -106,7 +106,7 @@ class ComputerSimulator
     program.each do |instruction|
       next if instruction.chomp.strip.length.zero?
 
-      if instruction =~ /^mask/
+      if /^mask/.match?(instruction)
         mask.change instruction[7..-1]
       else
         parts = instruction.split(' = ')
