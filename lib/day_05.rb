@@ -90,8 +90,8 @@ class BoardingPass
   # NOTE: I'm assuming call specified codes will be 10 characters
   #
   def parse_code code
-    row_code = code[0,7]
-    column_code = code[7,3]
+    row_code = code[0, 7]
+    column_code = code[7, 3]
 
     parse_row_code row_code
     parse_colum_code column_code

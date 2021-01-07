@@ -83,7 +83,7 @@ class Group
     end
 
     count = 0
-    questions.each do |_,value|
+    questions.each do |_, value|
       count += 1 if value == people_answering
     end
     count
