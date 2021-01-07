@@ -37,3 +37,9 @@ I will organize by Days, as they are presented on the AoC website.
 * [Day 13: Shuttle Search](https://adventofcode.com/2020/day/13)
 * [Day 14: Docking Data](https://adventofcode.com/2020/day/14)
 * [Day 15: Rambunctious Recitation](https://adventofcode.com/2020/day/15)
+* [Day 16: Ticket Translation](https://adventofcode.com/2020/day/16)
+
+----
+
+To be completed:
+* [Day 16, part two](https://adventofcode.com/2020/day/16#part2)
