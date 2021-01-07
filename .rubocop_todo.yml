@@ -143,13 +143,6 @@ Style/OptionalBooleanParameter:
   Exclude:
     - 'lib/day_04.rb'
 
-# Offense count: 2
-# Cop supports --auto-correct.
-Style/SlicingWithRange:
-  Exclude:
-    - 'lib/day_12.rb'
-    - 'lib/day_14.rb'
-
 # Offense count: 14
 # Cop supports --auto-correct.
 # Configuration parameters: IgnoredMethods.

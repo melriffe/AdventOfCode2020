@@ -151,7 +151,7 @@ class Captain
 
   def self.parse instruction
     action = instruction[0]
-    value = instruction[1..-1]
+    value = instruction[1..]
 
     ACTIONS[action].new value.to_i
   end

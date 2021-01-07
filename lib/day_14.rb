@@ -108,7 +108,7 @@ class ComputerSimulator
       next if instruction.chomp.strip.length.zero?
 
       if /^mask/.match?(instruction)
-        mask.change instruction[7..-1]
+        mask.change instruction[7..]
       else
         parts = instruction.split(' = ')
         slot = parts.first.match(/\d+/)[0]
