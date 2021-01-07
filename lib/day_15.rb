@@ -64,8 +64,7 @@ class MemoryGame
 
   private
 
-  attr_accessor :last_number, :next_number, :numbers_spoken
-  attr_accessor :starting_numbers, :turn
+  attr_accessor :last_number, :next_number, :numbers_spoken, :starting_numbers, :turn
 
   def advance_turn_keeper
     self.turn += 1

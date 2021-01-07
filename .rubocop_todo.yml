@@ -136,14 +136,6 @@ RSpec/RepeatedDescription:
     - 'spec/day-11/seating_system_spec.rb'
     - 'spec/day-12/rain_risk_spec.rb'
 
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: separated, grouped
-Style/AccessorGrouping:
-  Exclude:
-    - 'lib/day_15.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 Style/CaseLikeIf:
