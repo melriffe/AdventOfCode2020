@@ -17,12 +17,12 @@ class Day13
 
   def exercise1
     parse_data
-    busses.sort.first.waiting_time
+    busses.min.waiting_time
   end
 
   def exercise2
     parse_data
-    big_bus = busses.sort_by { |bus| bus.number }.last
+    big_bus = busses.max_by { |bus| bus.number }
     time = -big_bus.delta
     increment = big_bus.number
     while true

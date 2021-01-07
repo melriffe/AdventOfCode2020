@@ -57,7 +57,7 @@ RSpec.describe Bus do
 
     it 'sorts by :earliest_departure_time' do
       array = [bus1, bus2]
-      expect(array.sort.first).to eq bus2
+      expect(array.min).to eq bus2
     end
   end
 end
