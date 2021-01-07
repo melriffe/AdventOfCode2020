@@ -71,7 +71,7 @@ class LineParser
     rule_descriptor = parse_descriptor parts.first
     definition = parts.last.strip
 
-    if definition.match(/no other bags/)
+    if definition =~ /no other bags/
       definition_descriptors = []
     else
       definition_descriptors = definition.split(', ').collect do |descriptor|
@@ -90,7 +90,7 @@ class LineParser
   #
   def self.parse_descriptor descriptor
     descriptor_parts = descriptor.split(' ')
-    if descriptor_parts.first.match(/\d+/)
+    if descriptor_parts.first =~ /\d+/
       "#{descriptor_parts[1]}-#{descriptor_parts[2]} #{descriptor_parts[0]}"
     else
       "#{descriptor_parts[0]}-#{descriptor_parts[1]}"
