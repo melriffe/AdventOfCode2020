@@ -63,19 +63,19 @@ class Day03
   #
   def exercise2
     slope = Slope.new
-    value = self.exercise1 slope
+    value = exercise1 slope
 
     slope = Slope.new right: 3
-    value *= self.exercise1 slope
+    value *= exercise1 slope
 
     slope = Slope.new right: 5
-    value *= self.exercise1 slope
+    value *= exercise1 slope
 
     slope = Slope.new right: 7
-    value *= self.exercise1 slope
+    value *= exercise1 slope
 
     slope = Slope.new right: 1, down: 2
-    value *= self.exercise1 slope
+    value *= exercise1 slope
 
     value
   end

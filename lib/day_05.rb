@@ -60,7 +60,7 @@ class BoardingPass
 
   def initialize code
     self.column = self.row = 0
-    self.parse_code code
+    parse_code code
   end
 
   def seat_id

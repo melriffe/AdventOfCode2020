@@ -247,7 +247,7 @@ class Seat
   end
 
   def transition
-    if self.next_state && self.state != self.next_state
+    if next_state && state != next_state
       changed
       self.state = next_state
       self.next_state = nil
@@ -309,81 +309,81 @@ class SeatLayout
 
   def occupants_adjacent_to position
     adjacent_occupants = []
-    adjacent_occupants << self.occupant_at(position.left)
-    adjacent_occupants << self.occupant_at(position.upper_left)
-    adjacent_occupants << self.occupant_at(position.up)
-    adjacent_occupants << self.occupant_at(position.upper_right)
-    adjacent_occupants << self.occupant_at(position.right)
-    adjacent_occupants << self.occupant_at(position.lower_right)
-    adjacent_occupants << self.occupant_at(position.down)
-    adjacent_occupants << self.occupant_at(position.lower_left)
+    adjacent_occupants << occupant_at(position.left)
+    adjacent_occupants << occupant_at(position.upper_left)
+    adjacent_occupants << occupant_at(position.up)
+    adjacent_occupants << occupant_at(position.upper_right)
+    adjacent_occupants << occupant_at(position.right)
+    adjacent_occupants << occupant_at(position.lower_right)
+    adjacent_occupants << occupant_at(position.down)
+    adjacent_occupants << occupant_at(position.lower_left)
     adjacent_occupants.compact
   end
 
   def occupants_visible_from position
     visible_occupants = []
-    visible_occupants << self.first_seat_left(position.left)
-    visible_occupants << self.first_seat_upper_left(position.upper_left)
-    visible_occupants << self.first_seat_up(position.up)
-    visible_occupants << self.first_seat_upper_right(position.upper_right)
-    visible_occupants << self.first_seat_right(position.right)
-    visible_occupants << self.first_seat_lower_right(position.lower_right)
-    visible_occupants << self.first_seat_down(position.down)
-    visible_occupants << self.first_seat_lower_left(position.lower_left)
+    visible_occupants << first_seat_left(position.left)
+    visible_occupants << first_seat_upper_left(position.upper_left)
+    visible_occupants << first_seat_up(position.up)
+    visible_occupants << first_seat_upper_right(position.upper_right)
+    visible_occupants << first_seat_right(position.right)
+    visible_occupants << first_seat_lower_right(position.lower_right)
+    visible_occupants << first_seat_down(position.down)
+    visible_occupants << first_seat_lower_left(position.lower_left)
     visible_occupants.compact
   end
 
   def first_seat_left position
-    occupant = self.occupant_at position
+    occupant = occupant_at position
     return occupant if occupant.nil? || occupant.seat?
 
     first_seat_left position.left
   end
 
   def first_seat_upper_left position
-    occupant = self.occupant_at position
+    occupant = occupant_at position
     return occupant if occupant.nil? || occupant.seat?
 
     first_seat_upper_left position.upper_left
   end
 
   def first_seat_up position
-    occupant = self.occupant_at position
+    occupant = occupant_at position
     return occupant if occupant.nil? || occupant.seat?
 
     first_seat_up position.up
   end
 
   def first_seat_upper_right position
-    occupant = self.occupant_at position
+    occupant = occupant_at position
     return occupant if occupant.nil? || occupant.seat?
 
     first_seat_upper_right position.upper_right
   end
 
   def first_seat_right position
-    occupant = self.occupant_at position
+    occupant = occupant_at position
     return occupant if occupant.nil? || occupant.seat?
 
     first_seat_right position.right
   end
 
   def first_seat_lower_right position
-    occupant = self.occupant_at position
+    occupant = occupant_at position
     return occupant if occupant.nil? || occupant.seat?
 
     first_seat_lower_right position.lower_right
   end
 
   def first_seat_down position
-    occupant = self.occupant_at position
+    occupant = occupant_at position
     return occupant if occupant.nil? || occupant.seat?
 
     first_seat_down position.down
   end
 
   def first_seat_lower_left position
-    occupant = self.occupant_at position
+    occupant = occupant_at position
     return occupant if occupant.nil? || occupant.seat?
 
     first_seat_lower_left position.lower_left

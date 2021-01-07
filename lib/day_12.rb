@@ -285,7 +285,7 @@ class Navigation
 
   # LeftRotation API
   def rotate_left steps
-    self.turn_left steps
+    turn_left steps
   end
 
   # east -> north -> west -> south -> east
@@ -297,7 +297,7 @@ class Navigation
 
   # RightRotation API
   def rotate_right steps
-    self.turn_right steps
+    turn_right steps
   end
 
   # east -> south -> west -> north -> east

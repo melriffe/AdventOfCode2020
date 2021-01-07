@@ -211,18 +211,6 @@ Style/OptionalBooleanParameter:
   Exclude:
     - 'lib/day_04.rb'
 
-# Offense count: 41
-# Cop supports --auto-correct.
-Style/RedundantSelf:
-  Exclude:
-    - 'lib/day_03.rb'
-    - 'lib/day_04.rb'
-    - 'lib/day_05.rb'
-    - 'lib/day_08.rb'
-    - 'lib/day_10.rb'
-    - 'lib/day_11.rb'
-    - 'lib/day_12.rb'
-
 # Offense count: 3
 # Cop supports --auto-correct.
 Style/RedundantSort:

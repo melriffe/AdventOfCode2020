@@ -59,7 +59,7 @@ class AdapterAnalyzer
   end
 
   def self.distinct_arrangements adapters
-    self.count adapters, from: 0, start_at: 0, memo: []
+    count adapters, from: 0, start_at: 0, memo: []
   end
 
   def self.count adapters, from:, start_at:, memo:

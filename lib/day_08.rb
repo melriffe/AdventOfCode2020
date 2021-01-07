@@ -159,7 +159,7 @@ class Cpu
       next if line.chomp.strip.length.zero?
 
       parts = line.split(' ')
-      self.instructions << OPCODES[parts.first].new(argument: parts.last.to_i, cpu: self)
+      instructions << OPCODES[parts.first].new(argument: parts.last.to_i, cpu: self)
     end
     self.last_instruction = boot_code.length
   end

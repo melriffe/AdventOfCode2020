@@ -37,7 +37,7 @@ class Day04
     passports_fields = []
     data.each do |line|
       if line.chomp.length.zero?
-        self.passports << Passport.new(passports_fields, field_validation)
+        passports << Passport.new(passports_fields, field_validation)
         passports_fields = []
       else
         passports_fields << line.chomp
@@ -48,7 +48,7 @@ end
 
 class Passport
   def initialize field_data, field_validation = false
-    self.parse_data field_data
+    parse_data field_data
     self.field_validation = field_validation
   end
 
@@ -88,10 +88,10 @@ class Passport
       associations = field_line.split(' ')
       associations.each do |association|
         parts = association.split(':')
-        self.fields[parts.first] = PassportField.new(parts.first, parts.last)
+        fields[parts.first] = PassportField.new(parts.first, parts.last)
       end
     end
-    self.fields
+    fields
   end
 
   def required_fields_present?
