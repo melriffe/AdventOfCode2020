@@ -321,7 +321,7 @@ class PassportFieldValidator
     'ecl' => ::EyeColorValidator,
     'pid' => ::PassportIdValidator,
     'cid' => ::CountryIdValidator
-  }
+  }.freeze
 
   def self.validator passport_field
     VALIDATORS[passport_field.name].new(passport_field)

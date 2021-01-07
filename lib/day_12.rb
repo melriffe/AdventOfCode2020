@@ -146,7 +146,7 @@ class Captain
     'L' => LeftRotation,
     'R' => RightRotation,
     'F' => ForwardMovement
-  }
+  }.freeze
 
   def self.parse instruction
     action = instruction[0]
@@ -239,7 +239,7 @@ class Navigation
   extend Forwardable
 
   # Indices      [   0    1    2    3    ]
-  DIRECTIONS = %i[east south west north]
+  DIRECTIONS = %i[east south west north].freeze
 
   attr_accessor :location
 

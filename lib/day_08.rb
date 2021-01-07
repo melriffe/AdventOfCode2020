@@ -114,7 +114,7 @@ class Cpu
     'acc' => Acc,
     'jmp' => Jmp,
     'nop' => NoOp
-  }
+  }.freeze
 
   def self.load boot_code
     new boot_code
