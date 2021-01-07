@@ -25,7 +25,7 @@ class Day13
     big_bus = busses.max_by { |bus| bus.number }
     time = -big_bus.delta
     increment = big_bus.number
-    while true
+    loop do
       time += increment
       checks = busses.collect { |bus| bus.departure_time? time }
       break if checks.all?
@@ -42,6 +42,7 @@ class Day13
     data.each_with_index do |line, index|
       self.departure_time = line.to_i if index.zero?
       next unless index.positive?
+
       bus_ids = line.split(',')
       bus_ids.each_with_index do |id, index|
         next if id == 'x'

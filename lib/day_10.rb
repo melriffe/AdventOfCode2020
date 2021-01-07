@@ -74,12 +74,12 @@ class AdapterAnalyzer
     end
 
     if size >= start_at + 1 && (from + 3 >= adapters[start_at + 1])
-        count += self.count adapters, from: adapters[start_at + 1], start_at: start_at + 2, memo: memo
-      end
+      count += self.count adapters, from: adapters[start_at + 1], start_at: start_at + 2, memo: memo
+    end
 
     if size >= start_at + 2 && (from + 3 >= adapters[start_at + 2])
-        count += self.count adapters, from: adapters[start_at + 2], start_at: start_at + 3, memo: memo
-      end
+      count += self.count adapters, from: adapters[start_at + 2], start_at: start_at + 3, memo: memo
+    end
 
     memo[start_at] = count
     count
