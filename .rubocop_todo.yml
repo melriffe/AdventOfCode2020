@@ -147,14 +147,6 @@ Style/ClassVars:
   Exclude:
     - 'lib/day_11.rb'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SingleLineConditionsOnly, IncludeTernaryExpressions.
-# SupportedStyles: assign_to_condition, assign_inside_condition
-Style/ConditionalAssignment:
-  Exclude:
-    - 'lib/day_07.rb'
-
 # Offense count: 52
 Style/Documentation:
   Exclude:

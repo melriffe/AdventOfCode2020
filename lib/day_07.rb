@@ -71,15 +71,15 @@ class LineParser
     rule_descriptor = parse_descriptor parts.first
     definition = parts.last.strip
 
-    if /no other bags/.match?(definition)
-      definition_descriptors = []
-    else
-      definition_descriptors = definition.split(', ').collect do |descriptor|
-        contains_descriptior = parse_descriptor descriptor
-        parts = contains_descriptior.split(' ')
-        { parts.first => parts.last.to_i }
-      end
-    end
+    definition_descriptors = if /no other bags/.match?(definition)
+                               []
+                             else
+                               definition.split(', ').collect do |descriptor|
+                                 contains_descriptior = parse_descriptor descriptor
+                                 parts = contains_descriptior.split(' ')
+                                 { parts.first => parts.last.to_i }
+                               end
+                             end
 
     { rule_descriptor => definition_descriptors }
   end
