@@ -38,6 +38,7 @@ class Day15
     self.starting_numbers = []
     data.each do |line|
       next if line.chomp.strip.length.zero?
+
       line.split(',').each do |number|
         starting_numbers << number.strip.to_i
       end
@@ -88,6 +89,7 @@ class MemoryGame
 
   def consider_last_number
     return last_number_age if last_number_spoken_before?
+
     0
   end
 

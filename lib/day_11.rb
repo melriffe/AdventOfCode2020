@@ -56,6 +56,7 @@ class PositionalLimits
 
   def self.max_col= value
     raise ArgumentError, "'value' must be a postive whole number" if value < 1
+
     @@max_col = value
   end
 
@@ -65,6 +66,7 @@ class PositionalLimits
 
   def self.max_row= value
     raise ArgumentError, "'value' must be a postive whole number" if value < 1
+
     @@max_row = value
   end
 
@@ -343,48 +345,56 @@ class SeatLayout
   def first_seat_left position
     occupant = self.occupant_at position
     return occupant if occupant.nil? || occupant.seat?
+
     first_seat_left position.left
   end
 
   def first_seat_upper_left position
     occupant = self.occupant_at position
     return occupant if occupant.nil? || occupant.seat?
+
     first_seat_upper_left position.upper_left
   end
 
   def first_seat_up position
     occupant = self.occupant_at position
     return occupant if occupant.nil? || occupant.seat?
+
     first_seat_up position.up
   end
 
   def first_seat_upper_right position
     occupant = self.occupant_at position
     return occupant if occupant.nil? || occupant.seat?
+
     first_seat_upper_right position.upper_right
   end
 
   def first_seat_right position
     occupant = self.occupant_at position
     return occupant if occupant.nil? || occupant.seat?
+
     first_seat_right position.right
   end
 
   def first_seat_lower_right position
     occupant = self.occupant_at position
     return occupant if occupant.nil? || occupant.seat?
+
     first_seat_lower_right position.lower_right
   end
 
   def first_seat_down position
     occupant = self.occupant_at position
     return occupant if occupant.nil? || occupant.seat?
+
     first_seat_down position.down
   end
 
   def first_seat_lower_left position
     occupant = self.occupant_at position
     return occupant if occupant.nil? || occupant.seat?
+
     first_seat_lower_left position.lower_left
   end
 
@@ -423,6 +433,7 @@ class SeatLayout
     column = row = 0
     seat_layout.each do |line|
       next if line.chomp.strip.length.zero?
+
       row = 0
       line.each_char do |character|
         case character

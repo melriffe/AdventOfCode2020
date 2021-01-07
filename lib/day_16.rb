@@ -38,6 +38,7 @@ class Day16
     field_rules = data.slice!((0..empty_line_index))
     field_rules.each do |specification|
       next if specification.strip.length.zero?
+
       rules << Rule.new(specification)
     end
 
@@ -48,6 +49,7 @@ class Day16
     ticket_specifications.each do |line|
       next if line.strip.length.zero?
       next if line.match(/ticket/)
+
       field_values = line.split(',')
       field_values.each do |value|
         my_ticket.add_field Field.new(value.to_i)
@@ -59,6 +61,7 @@ class Day16
     data.each do |line|
       next if line.strip.length.zero?
       next if line.match(/ticket/)
+
       ticket = Ticket.new
       field_values = line.split(',')
       field_values.each do |value|

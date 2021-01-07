@@ -6,21 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 24
-# Cop supports --auto-correct.
-Layout/EmptyLineAfterGuardClause:
-  Exclude:
-    - 'lib/day_07.rb'
-    - 'lib/day_08.rb'
-    - 'lib/day_09.rb'
-    - 'lib/day_10.rb'
-    - 'lib/day_11.rb'
-    - 'lib/day_12.rb'
-    - 'lib/day_13.rb'
-    - 'lib/day_14.rb'
-    - 'lib/day_15.rb'
-    - 'lib/day_16.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: EmptyLineBetweenMethodDefs, EmptyLineBetweenClassDefs, EmptyLineBetweenModuleDefs, AllowAdjacentOneLineDefs, NumberOfEmptyLines.

@@ -39,6 +39,7 @@ class Day12
     self.navigation_instructions = []
     data.each do |line|
       next if line.chomp.strip.length.zero?
+
       navigation_instructions << line
     end
   end

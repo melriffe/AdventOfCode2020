@@ -30,6 +30,7 @@ class Day10
   def parse_data
     self.adapters = data.collect do |line|
       next if line.chomp.strip.length.zero?
+
       line.to_i
     end
   end

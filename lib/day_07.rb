@@ -40,6 +40,7 @@ class Day07
     self.luggage_policy = LuggagePolicy.new
     data.each do |line|
       next if line.chomp.strip.length.zero?
+
       rule = LineParser.parse line
       rule.each_pair do |name,  enclosed_bags|
         bag = luggage_policy.bag_called name

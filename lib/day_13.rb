@@ -45,6 +45,7 @@ class Day13
         bus_ids = line.split(',')
         bus_ids.each_with_index do |id, index|
           next if id == 'x'
+
           busses << Bus.new( id.to_i, departure_time, index )
         end
       end

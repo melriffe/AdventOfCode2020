@@ -149,6 +149,7 @@ class Cpu
     while(current_instruction < last_instruction)
       instruction = instructions[current_instruction]
       return false if instruction.executed?
+
       instruction.advance
     end
     true
@@ -162,6 +163,7 @@ class Cpu
   def add_instructions boot_code
     boot_code.each do |line|
       next if line.chomp.strip.length.zero?
+
       parts = line.split(' ')
       self.instructions << OPCODES[parts.first].new( argument: parts.last.to_i, cpu: self )
     end

@@ -67,6 +67,7 @@ class Day09
   def parse_data
     self.encrypted_data = data.collect do |line|
       next if line.chomp.strip.length.zero?
+
       line.to_i
     end
   end

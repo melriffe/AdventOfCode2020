@@ -110,6 +110,7 @@ class ComputerSimulator
   def run!
     program.each do |instruction|
       next if instruction.chomp.strip.length.zero?
+
       if instruction.match(/^mask/)
         mask.change instruction[7..-1]
       else
