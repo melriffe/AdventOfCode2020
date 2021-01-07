@@ -69,7 +69,6 @@ class Day16
       end
       nearby_tickets << ticket
     end
-
   end
 end
 

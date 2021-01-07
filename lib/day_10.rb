@@ -38,7 +38,6 @@ end
 
 class AdapterAnalyzer
   def self.joltage_differences adapters
-
     ones = 0
     threes = 1
 
@@ -57,7 +56,6 @@ class AdapterAnalyzer
     end
 
     ones * threes
-
   end
 
   def self.distinct_arrangements adapters

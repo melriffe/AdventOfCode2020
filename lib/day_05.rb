@@ -27,7 +27,6 @@ class Day05
       second = seat_ids[index + 1]
       return second - 1 if second - first == 2
     end
-
   end
 
   private
