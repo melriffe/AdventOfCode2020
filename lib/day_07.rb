@@ -45,9 +45,9 @@ class Day07
       rule.each_pair do |name, enclosed_bags|
         bag = luggage_policy.bag_called name
         enclosed_bags.each do |enclosed_bag|
-          enclosed_bag.each_pair do |_name, quantity|
-            _bag = luggage_policy.bag_called _name
-            bag.enclose _bag, occurrences: quantity
+          enclosed_bag.each_pair do |bag_name, quantity|
+            bag2 = luggage_policy.bag_called bag_name
+            bag.enclose bag2, occurrences: quantity
           end
         end
       end
