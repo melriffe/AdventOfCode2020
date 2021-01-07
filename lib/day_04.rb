@@ -212,9 +212,9 @@ class HeightValidator
   def valid?
     value = passport_field.value
     if /in$/.match?(value)
-      return valid_imperial_value? value.to_i
+      valid_imperial_value? value.to_i
     elsif /cm$/.match?(value)
-      return valid_metric_value? value.to_i
+      valid_metric_value? value.to_i
     else
       false
     end
