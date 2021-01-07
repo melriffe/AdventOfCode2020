@@ -218,14 +218,6 @@ Style/SlicingWithRange:
     - 'lib/day_12.rb'
     - 'lib/day_14.rb'
 
-# Offense count: 3
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, ConsistentQuotesInMultiline.
-# SupportedStyles: single_quotes, double_quotes
-Style/StringLiterals:
-  Exclude:
-    - 'Gemfile'
-
 # Offense count: 14
 # Cop supports --auto-correct.
 # Configuration parameters: IgnoredMethods.
