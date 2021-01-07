@@ -41,9 +41,9 @@ class Day09
     index = 0
     count = 1
 
-    while(index < encrypted_data.length)
+    while (index < encrypted_data.length)
 
-      until(encrypted_data[index, count].sum >= invalid_value)
+      until (encrypted_data[index, count].sum >= invalid_value)
         count += 1
       end
 

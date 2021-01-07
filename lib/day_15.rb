@@ -14,7 +14,7 @@ class Day15
 
   def exercise1
     parse_data
-    while(true)
+    while (true)
       turn, number = memory_game.speak_number
       break if turn == 2_020
     end
@@ -23,7 +23,7 @@ class Day15
 
   def exercise2
     parse_data
-    while(true)
+    while (true)
       turn, number = memory_game.speak_number
       break if turn == 30_000_000
     end
