@@ -44,10 +44,10 @@ class Day13
       next unless index.positive?
 
       bus_ids = line.split(',')
-      bus_ids.each_with_index do |id, index|
+      bus_ids.each_with_index do |id, index2|
         next if id == 'x'
 
-        busses << Bus.new(id.to_i, departure_time, index)
+        busses << Bus.new(id.to_i, departure_time, index2)
       end
     end
   end
