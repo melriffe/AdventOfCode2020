@@ -30,7 +30,7 @@ class Day02
   #
   def exercise1
     parse_data MinMaxValidator
-    validators.count { |validator| validator.valid? }
+    validators.count(&:valid?)
   end
 
   ##
@@ -46,7 +46,7 @@ class Day02
   #
   def exercise2
     parse_data PositionalValidator
-    validators.count { |validator| validator.valid? }
+    validators.count(&:valid?)
   end
 
   private

@@ -66,7 +66,7 @@ class Group
   # Returns the count of unique questions answered
   #
   def answered_count
-    people.collect { |person| person.answered }.flatten.uniq.size
+    people.collect(&:answered).flatten.uniq.size
   end
 
   ##

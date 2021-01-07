@@ -106,7 +106,7 @@ class Ticket
   end
 
   def invalid_fields
-    fields.reject { |field| field.valid? }
+    fields.reject(&:valid?)
   end
 
   private

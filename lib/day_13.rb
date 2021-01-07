@@ -23,7 +23,7 @@ class Day13
 
   def exercise2
     parse_data
-    big_bus = busses.max_by { |bus| bus.number }
+    big_bus = busses.max_by(&:number)
     time = -big_bus.delta
     increment = big_bus.number
     loop do

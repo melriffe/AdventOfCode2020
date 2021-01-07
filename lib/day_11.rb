@@ -185,7 +185,7 @@ class AdjacentEmptyToOccupiedState
   #
   def self.should_transition? my_position, seat_layout
     occupants = seat_layout.occupants_adjacent_to my_position
-    occupants.select { |occupant| occupant.occupied? }.empty?
+    occupants.select(&:occupied?).empty?
   end
 end
 
@@ -197,7 +197,7 @@ class AdjacentOccupiedToEmptyState
   #
   def self.should_transition? my_position, seat_layout
     occupants = seat_layout.occupants_adjacent_to my_position
-    occupants.count { |occupant| occupant.occupied? } > 3
+    occupants.count(&:occupied?) > 3
   end
 end
 
@@ -212,7 +212,7 @@ class FirstSeatEmptyToOccupiedState
   #
   def self.should_transition? my_position, seat_layout
     occupants = seat_layout.occupants_visible_from my_position
-    occupants.select { |occupant| occupant.occupied? }.empty?
+    occupants.select(&:occupied?).empty?
   end
 end
 
@@ -227,7 +227,7 @@ class FirstSeatOccupiedToEmptyState
   #
   def self.should_transition? my_position, seat_layout
     occupants = seat_layout.occupants_visible_from my_position
-    occupants.count { |occupant| occupant.occupied? } > 4
+    occupants.count(&:occupied?) > 4
   end
 end
 
@@ -413,7 +413,7 @@ class SeatLayout
   end
 
   def occupied_seats
-    positions.values.count { |occupant| occupant.occupied? }
+    positions.values.count(&:occupied?)
   end
 
   private

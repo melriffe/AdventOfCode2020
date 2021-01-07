@@ -16,12 +16,12 @@ class Day05
 
   def exercise1
     parse_data
-    boarding_passes.collect { |bording_pass| bording_pass.seat_id }.max
+    boarding_passes.collect(&:seat_id).max
   end
 
   def exercise2
     parse_data
-    seat_ids = boarding_passes.collect { |bording_pass| bording_pass.seat_id }
+    seat_ids = boarding_passes.collect(&:seat_id)
     seat_ids.sort!
 
     seat_ids.each_with_index do |first, index|

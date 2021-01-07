@@ -21,12 +21,12 @@ class Day04
   # the passport is considered valid, otherwise it is invalid.
   def exercise1
     parse_data
-    passports.count { |passport| passport.valid? }
+    passports.count(&:valid?)
   end
 
   def exercise2
     parse_data true
-    passports.count { |passport| passport.valid? }
+    passports.count(&:valid?)
   end
 
   private
