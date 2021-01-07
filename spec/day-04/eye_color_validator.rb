@@ -6,6 +6,7 @@ RSpec.describe EyeColorValidator do
 
   context 'when value is brn' do
     before { field.value = 'brn' }
+
     it 'is valid' do
       expect(validator.valid?).to be true
     end
@@ -13,6 +14,7 @@ RSpec.describe EyeColorValidator do
 
   context 'when value is wat' do
     before { field.value = 'wat' }
+
     it 'is invalid' do
       expect(validator.valid?).not_to be true
     end
