@@ -239,7 +239,7 @@ class Navigation
   extend Forwardable
 
   # Indices      [   0    1    2    3    ]
-  DIRECTIONS = %i[ east south west north ]
+  DIRECTIONS = %i[east south west north]
 
   attr_accessor :location
 
@@ -260,7 +260,7 @@ class Navigation
   # NOTE: Nasty Hack because of AoC.
   #
   def navigation_command? command
-    %w[ ForwardMovement LeftRotation RightRotation ].include? command.class.name
+    %w[ForwardMovement LeftRotation RightRotation].include? command.class.name
   end
 
   def direction
@@ -547,7 +547,7 @@ class WaypointNavigation
   # NOTE: Nasty Hack because of AoC.
   #
   def navigation_command? command
-    %w[ ForwardMovement ].include? command.class.name
+    %w[ForwardMovement].include? command.class.name
   end
 
   # ForwardMovement API

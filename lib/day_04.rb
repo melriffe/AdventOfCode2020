@@ -269,7 +269,7 @@ class EyeColorValidator
   private
 
   def valid_values
-    %w[ amb blu brn gry grn hzl oth ]
+    %w[amb blu brn gry grn hzl oth]
   end
 end
 
