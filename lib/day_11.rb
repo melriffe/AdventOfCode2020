@@ -95,8 +95,8 @@ class Position
     self.row    = row
   end
 
-  def eql? other_position
-    column == other_position.column && row == other_position.row
+  def eql? other
+    column == other.column && row == other.row
   end
 
   def hash

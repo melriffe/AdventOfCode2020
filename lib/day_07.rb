@@ -111,8 +111,8 @@ class Bag
     self.enclosing = Set.new
   end
 
-  def eql? other_key
-    name == other_key.name
+  def eql? other
+    name == other.name
   end
 
   def hash
