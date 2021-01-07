@@ -36,8 +36,8 @@ RSpec.describe 'Day 13: Shuttle Search' do
       expect(model.exercise1).to eq 3464
     end
 
-    xit 'finds earliest time of convergence' do
-      expect(model.exercise2).to eq 1068781
+    it 'finds earliest time of convergence' do
+      expect(model.exercise2).to eq 760171380521445
     end
   end
 end

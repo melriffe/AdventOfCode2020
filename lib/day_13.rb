@@ -23,15 +23,10 @@ class Day13
 
   def exercise2
     parse_data
-    big_bus = busses.max_by(&:number)
-    time = -big_bus.delta
-    increment = big_bus.number
-    loop do
-      time += increment
-      checks = busses.collect { |bus| bus.departure_time? time }
-      break if checks.all?
-    end
-    time
+    # NOTE: Thanks to https://github.com/KrzaQ/AdventOfCode2020/blob/main/solutions/day13/main.rb
+    # for showing me what values needed to be in my arrays.
+    mods, rems = busses.map { |bus| [bus.number, (bus.number - bus.delta) % bus.number] }.transpose
+    HubeiProvince.new(mods, rems).chinese_remainder
   end
 
   private
@@ -98,5 +93,47 @@ class Bus
 
   def calculature_waiting_time
     id * (earliest_departure_time - target_departure_time)
+  end
+end
+
+##
+# Implements the Chinese Remainder Theorem, shamelessly copied from
+# https://rosettacode.org/wiki/Chinese_remainder_theorem#Ruby
+#
+# https://en.wikipedia.org/wiki/Hubei whose capital is Wuhan
+#
+class HubeiProvince
+
+  def initialize mods, remainders
+    self.mods = mods
+    self.remainders = remainders
+  end
+
+  def chinese_remainder
+    max = mods.inject(:* ) # product of all moduli
+    series = remainders.zip(mods).map{ |r,m| (r * max * invmod(max/m, m) / m) }
+    series.inject( :+ ) % max
+  end
+
+  private
+
+  attr_accessor :mods, :remainders
+
+  def invmod(e, et)
+    g, x = extended_gcd(e, et)
+    if g != 1
+      raise 'Multiplicative inverse modulo does not exist!'
+    end
+    x % et
+  end
+
+  def extended_gcd(a, b)
+    last_remainder, remainder = a.abs, b.abs
+    x, last_x = 0, 1
+    while remainder != 0
+      last_remainder, (quotient, remainder) = remainder, last_remainder.divmod(remainder)
+      x, last_x = last_x - quotient*x, x
+    end
+    return last_remainder, last_x * (a < 0 ? -1 : 1)
   end
 end

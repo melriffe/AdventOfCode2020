@@ -44,9 +44,3 @@ I will organize by Days, as they are presented on the AoC website.
 To be completed:
 * [Day 14, part two](https://adventofcode.com/2020/day/14#part2)
 * [Day 16, part two](https://adventofcode.com/2020/day/16#part2)
-
-----
-
-To be submitted:
-* [Day 13, part two](https://adventofcode.com/2020/day/13#part2)
-  The program takes a long time to run. I've yet to run it to completion.
