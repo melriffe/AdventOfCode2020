@@ -100,5 +100,4 @@ class Bus
   def calculature_waiting_time
     id * (earliest_departure_time - target_departure_time)
   end
-
 end

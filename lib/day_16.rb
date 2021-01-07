@@ -74,7 +74,6 @@ class Day16
 end
 
 class TicketScanner
-
   def initialize rules, tickets
     self.rules = rules
     self.tickets = tickets
@@ -91,11 +90,9 @@ class TicketScanner
   private
 
   attr_accessor :rules, :tickets
-
 end
 
 class Ticket
-
   def initialize
     self.fields = []
   end
@@ -115,7 +112,6 @@ class Ticket
   private
 
   attr_accessor :fields, :rules
-
 end
 
 class Field
@@ -151,11 +147,9 @@ class Field
 
   attr_accessor :valid
   attr_writer :value
-
 end
 
 class Rule
-
   def initialize specification
     parse specification
   end

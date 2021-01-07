@@ -80,5 +80,4 @@ class Day09
     end
     false
   end
-
 end

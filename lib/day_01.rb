@@ -41,5 +41,4 @@ class Day01
       end
     end
   end
-
 end

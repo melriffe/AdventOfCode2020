@@ -177,7 +177,6 @@ class OccupiedState
 end
 
 class AdjacentEmptyToOccupiedState
-
   ##
   # If a seat is empty (L) and there are no occupied seats adjacent
   # to it, the seat becomes occupied. Otherwise, the seat's state
@@ -190,7 +189,6 @@ class AdjacentEmptyToOccupiedState
 end
 
 class AdjacentOccupiedToEmptyState
-
   ##
   # If a seat is occupied (#) and four or more seats adjacent to it
   # are also occupied, the seat becomes empty. Otherwise, the seat's
@@ -203,7 +201,6 @@ class AdjacentOccupiedToEmptyState
 end
 
 class FirstSeatEmptyToOccupiedState
-
   ##
   # If a seat is empty (L) and it sees no other occupied seats around
   # it, the seat becomes occupied. Otherwise, the seat's state does
@@ -216,11 +213,9 @@ class FirstSeatEmptyToOccupiedState
     occupants = seat_layout.occupants_visible_from my_position
     occupants.select { |occupant| occupant.occupied? }.empty?
   end
-
 end
 
 class FirstSeatOccupiedToEmptyState
-
   ##
   # If a seat is occupied (#) and it sees five or more occupied seats
   # around it, the seat becomes empty. Otherwise, the seat's state
@@ -233,7 +228,6 @@ class FirstSeatOccupiedToEmptyState
     occupants = seat_layout.occupants_visible_from my_position
     occupants.select { |occupant| occupant.occupied? }.size > 4
   end
-
 end
 
 class Seat
@@ -268,7 +262,6 @@ class Seat
   private
 
   attr_accessor :next_state, :state
-
 end
 
 class Floor
@@ -466,7 +459,6 @@ class SeatLayout
   def running?
     running
   end
-
 end
 
 class SeatLayoutTransitionLogic

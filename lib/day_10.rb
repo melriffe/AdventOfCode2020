@@ -37,7 +37,6 @@ class Day10
 end
 
 class AdapterAnalyzer
-
   def self.joltage_differences adapters
 
     ones = 0
@@ -93,5 +92,4 @@ class AdapterAnalyzer
     memo[start_at] = count
     count
   end
-
 end

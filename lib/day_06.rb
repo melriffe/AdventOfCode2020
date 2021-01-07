@@ -54,7 +54,6 @@ class Day06
     end
     groups << group # Save the last group
   end
-
 end
 
 class Group
@@ -92,7 +91,6 @@ class Group
 end
 
 class Person
-
   ##
   # 'questions' is a line of characters that represents the
   # questions this person answered

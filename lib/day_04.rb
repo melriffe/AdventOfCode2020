@@ -44,11 +44,9 @@ class Day04
       end
     end
   end
-
 end
 
 class Passport
-
   def initialize field_data, field_validation = false
     self.parse_data field_data
     self.field_validation = field_validation
@@ -147,7 +145,6 @@ class BirthYearValidator
   private
 
   attr_accessor :max, :min
-
 end
 
 ##
@@ -172,7 +169,6 @@ class IssueYearValidator
   private
 
   attr_accessor :max, :min
-
 end
 
 ##
@@ -197,7 +193,6 @@ class ExpirationYearValidator
   private
 
   attr_accessor :max, :min
-
 end
 
 ##
@@ -234,7 +229,6 @@ class HeightValidator
   def valid_imperial_value? value
     value <= 76 && value >= 59
   end
-
 end
 
 ##
@@ -253,7 +247,6 @@ class HairColorValidator
     value = passport_field.value
     !value.match(/#([0-9]|[a-f]){6}$/).nil?
   end
-
 end
 
 ##
@@ -278,7 +271,6 @@ class EyeColorValidator
   def valid_values
     %w[ amb blu brn gry grn hzl oth ]
   end
-
 end
 
 ##
@@ -297,7 +289,6 @@ class PassportIdValidator
     value = passport_field.value
     !value.match(/^[\d]{9}$/).nil?
   end
-
 end
 
 ##
@@ -315,7 +306,6 @@ class CountryIdValidator
   def valid?
     true
   end
-
 end
 
 ##

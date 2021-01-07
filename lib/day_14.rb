@@ -36,11 +36,9 @@ class Day14
 end
 
 class MaskV2
-
 end
 
 class Mask
-
   def initialize
     self.mask = ''
   end
@@ -72,11 +70,9 @@ class Mask
     and_mask = mask.gsub('X', '1')
     self.and_operand = and_mask.to_i(2)
   end
-
 end
 
 class Memory
-
   def initialize
     self.accessible_memory = {}
   end
@@ -92,7 +88,6 @@ class Memory
   private
 
   attr_accessor :accessible_memory
-
 end
 
 class ComputerSimulator
@@ -129,5 +124,4 @@ class ComputerSimulator
   private
 
   attr_accessor :memory, :program
-
 end

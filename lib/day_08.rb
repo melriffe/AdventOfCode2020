@@ -31,7 +31,6 @@ class Day08
       end
     end
   end
-
 end
 
 class Accumulator
@@ -48,7 +47,6 @@ class Accumulator
   private
 
   attr_writer :value
-
 end
 
 class Instruction
@@ -87,7 +85,6 @@ class Instruction
 end
 
 class Acc < Instruction
-
   def advance
     cpu.accumulator.change argument
     super
@@ -95,7 +92,6 @@ class Acc < Instruction
 end
 
 class Jmp < Instruction
-
   def advancement
     argument
   end
@@ -106,7 +102,6 @@ class Jmp < Instruction
 end
 
 class NoOp < Instruction
-
   def toggle_nop_jmp
     Jmp.new( argument: argument, cpu: cpu)
   end
@@ -168,5 +163,4 @@ class Cpu
     end
     self.last_instruction = boot_code.length
   end
-
 end

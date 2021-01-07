@@ -233,7 +233,6 @@ class Location
   def vertical_distance
     (north_units - south_units).abs
   end
-
 end
 
 class Navigation
@@ -313,7 +312,6 @@ class Navigation
   private
 
   attr_accessor :key
-
 end
 
 class Engine
@@ -355,7 +353,6 @@ class Ship
   private
 
   attr_accessor :engine, :navigation, :navigation_instructions
-
 end
 
 class Waypoint
@@ -528,7 +525,6 @@ class Waypoint
       location_left[:north] = location_right[:south]
     end
   end
-
 end
 
 class WaypointNavigation
@@ -581,16 +577,13 @@ class WaypointNavigation
   private
 
   attr_accessor :location, :waypoint
-
 end
 
 class WaypointShip < Ship
-
   protected
 
   def build_ship
     self.navigation = WaypointNavigation.new
     self.engine = Engine.new navigation
   end
-
 end

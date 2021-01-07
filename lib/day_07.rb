@@ -56,7 +56,6 @@ class Day07
 end
 
 class LineParser
-
   ##
   # Return Hash of parsed bits of the incoming line; { rule => [definitions] }
   #
@@ -154,7 +153,6 @@ class Bag
 end
 
 class LuggagePolicy
-
   def bags
     @bags ||= Hash.new { |hash, key| hash[key] = Bag.new key }
   end
@@ -162,5 +160,4 @@ class LuggagePolicy
   def bag_called name
     bags[name]
   end
-
 end

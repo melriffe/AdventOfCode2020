@@ -48,7 +48,6 @@ class Day15
 end
 
 class MemoryGame
-
   def initialize starting_numbers
     self.numbers_spoken = Hash.new { |hash, key| hash[key] = [] }
     self.starting_numbers = starting_numbers

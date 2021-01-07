@@ -149,5 +149,4 @@ class BoardingPass
 
     self.column = columns.first
   end
-
 end

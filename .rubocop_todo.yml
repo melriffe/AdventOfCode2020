@@ -6,27 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 55
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: empty_lines, empty_lines_except_namespace, empty_lines_special, no_empty_lines, beginning_only, ending_only
-Layout/EmptyLinesAroundClassBody:
-  Exclude:
-    - 'lib/day_01.rb'
-    - 'lib/day_04.rb'
-    - 'lib/day_05.rb'
-    - 'lib/day_06.rb'
-    - 'lib/day_07.rb'
-    - 'lib/day_08.rb'
-    - 'lib/day_09.rb'
-    - 'lib/day_10.rb'
-    - 'lib/day_11.rb'
-    - 'lib/day_12.rb'
-    - 'lib/day_13.rb'
-    - 'lib/day_14.rb'
-    - 'lib/day_15.rb'
-    - 'lib/day_16.rb'
-
 # Offense count: 4
 # Cop supports --auto-correct.
 Layout/EmptyLinesAroundMethodBody:
