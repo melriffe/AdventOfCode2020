@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 ##
 # --- Day 3: Toboggan Trajectory ---
 # https://adventofcode.com/2020/day/3

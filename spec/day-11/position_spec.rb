@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require './lib/day_11'
 
 RSpec.describe Position do

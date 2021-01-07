@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require './lib/day_16'
 
 RSpec.describe 'Day 16: Ticket Translation' do

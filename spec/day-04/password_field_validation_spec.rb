@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require './lib/day_04'
 
 RSpec.describe 'with Password Field Validation' do

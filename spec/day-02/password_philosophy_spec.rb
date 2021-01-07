@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require './lib/day_02'
 
 RSpec.describe 'Day 2: Password Philosophy' do

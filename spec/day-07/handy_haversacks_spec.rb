@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require './lib/day_07'
 
 RSpec.describe 'Day 7: Handy Haversacks' do

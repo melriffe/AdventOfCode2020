@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require './lib/day_14'
 
 RSpec.describe 'Day 14: Docking Data' do

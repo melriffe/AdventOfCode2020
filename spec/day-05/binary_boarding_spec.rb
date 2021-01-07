@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require './lib/day_05'
 
 RSpec.describe 'Day 5: Binary Boarding' do

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require './lib/day_12'
 
 RSpec.describe Location do
