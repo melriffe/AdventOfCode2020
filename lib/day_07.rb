@@ -141,7 +141,7 @@ class Bag
   def enclosed_bags
     count = 1
     contains.each_pair do |bag, occurrences|
-      count = count + (occurrences * bag.enclosed_bags)
+      count += (occurrences * bag.enclosed_bags)
     end
     count
   end

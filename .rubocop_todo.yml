@@ -211,12 +211,6 @@ Style/OptionalBooleanParameter:
   Exclude:
     - 'lib/day_04.rb'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/SelfAssignment:
-  Exclude:
-    - 'lib/day_07.rb'
-
 # Offense count: 2
 # Cop supports --auto-correct.
 Style/SlicingWithRange:
