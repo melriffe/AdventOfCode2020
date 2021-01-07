@@ -332,14 +332,6 @@ Style/SymbolProc:
     - 'lib/day_13.rb'
     - 'lib/day_16.rb'
 
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, AllowSafeAssignment.
-# SupportedStyles: require_parentheses, require_no_parentheses, require_parentheses_when_complex
-Style/TernaryParentheses:
-  Exclude:
-    - 'lib/day_02.rb'
-
 # Offense count: 3
 # Cop supports --auto-correct.
 # Configuration parameters: WordRegex.

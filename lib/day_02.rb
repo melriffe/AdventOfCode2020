@@ -108,8 +108,8 @@ class PositionalValidator
   # A 'password' is valid if 'letter' is in exactly one position.
   #
   def valid?
-    a = (password[position1] == letter) ? 1 : 0
-    b = (password[position2] == letter) ? 1 : 0
+    a = password[position1] == letter ? 1 : 0
+    b = password[position2] == letter ? 1 : 0
     (a + b) == 1
   end
 
