@@ -287,7 +287,7 @@ class PassportIdValidator
 
   def valid?
     value = passport_field.value
-    !value.match(/^[\d]{9}$/).nil?
+    !value.match(/^\d{9}$/).nil?
   end
 end
 
