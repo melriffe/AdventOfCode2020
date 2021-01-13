@@ -39,6 +39,7 @@ class Day19
     blank_line = data.index ''
     data.slice!(0..blank_line).each do |line|
       next if line.chomp.strip.length.zero?
+
       rule_parts = line.strip.split(': ')
       rules[rule_parts.first.to_i] = rule_parts.last
     end
@@ -46,6 +47,7 @@ class Day19
     self.messages = []
     data.each do |line|
       next if line.chomp.strip.length.zero?
+
       messages << line.strip
     end
 
@@ -54,7 +56,6 @@ class Day19
 end
 
 class RegexpGenerator
-
   def initialize rules
     self.rules = rules
     self.rules_to_translate = rules.to_a
@@ -63,7 +64,6 @@ class RegexpGenerator
 
   def generate!
     loop do
-
       populate_rule_numbers
       translate_rule_numbers
       update_progress
@@ -90,7 +90,7 @@ class RegexpGenerator
   # first element of each member of the numbers array.
   #
   def populate_rule_numbers
-    numbers = rules_to_translate.select do |number, rule|
+    numbers = rules_to_translate.select do |_number, rule|
       rule.scan(/\d+/).map(&:to_i) - tr_rules.keys == []
     end.map(&:first)
 
@@ -131,7 +131,7 @@ class RegexpGenerator
   # Remove from 'rules_to_translate' rules that have been translated.
   #
   def update_progress
-    self.rules_to_translate = rules_to_translate.reject{ |number, _| rule_numbers.include? number }
+    self.rules_to_translate = rules_to_translate.reject { |number, _| rule_numbers.include? number }
   end
 
   def new_regexp
@@ -141,5 +141,4 @@ class RegexpGenerator
   def rule_zero_pattern
     "^#{tr_rules[0]}$"
   end
-
 end
