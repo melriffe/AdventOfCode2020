@@ -48,3 +48,4 @@ To be completed:
 * [Day 16, part two](https://adventofcode.com/2020/day/16#part2)
 * [Day 17: Conway Cubes](https://adventofcode.com/2020/day/17)
 * [Day 18, part two](https://adventofcode.com/2020/day/18#part2)
+* [Day 19, part two](https://adventofcode.com/2020/day/19#part2)

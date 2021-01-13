@@ -31,7 +31,7 @@ RSpec.describe 'Day 19: Monster Messages' do
   context 'Examples' do
     let(:model) { Day19.new test_data }
 
-    xit 'finds messages matching Rule 0' do
+    it 'finds messages matching Rule 0' do
       expect(model.exercise1).to eq 2
     end
   end
@@ -39,5 +39,8 @@ RSpec.describe 'Day 19: Monster Messages' do
   context 'Exercises' do
     let(:model) { Day19.new fixture_data }
 
+    it 'finds messages matching Rule 0' do
+      expect(model.exercise1).to eq 165
+    end
   end
 end
