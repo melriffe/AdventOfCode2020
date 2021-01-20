@@ -40,6 +40,7 @@ I will organize by Days, as they are presented on the AoC website.
 * [Day 16: Ticket Translation](https://adventofcode.com/2020/day/16)
 * [Day 18: Operation Order](https://adventofcode.com/2020/day/18)
 * [Day 19: Monster Messages](https://adventofcode.com/2020/day/19)
+* [Day 20: Jurassic Jigsaw](https://adventofcode.com/2020/day/20)
 
 ----
 
