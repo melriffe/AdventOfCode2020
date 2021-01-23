@@ -34,5 +34,8 @@ RSpec.describe 'Day 20: Jurassic Jigsaw' do
   context 'Exercises' do
     let(:model) { Day20.new fixture_data }
 
+    it 'locates corner tiles of assembled image' do
+      expect(model.exercise1).to eq 111936085519519
+    end
   end
 end
