@@ -21,7 +21,7 @@ class Day20
     parse_data
     image = Image.new image_tiles
     image.reassemble
-    image.corners.reduce( &:* )
+    image.corners.reduce(&:*)
   end
 
   def exercise2
@@ -54,7 +54,7 @@ class Day20
     data.each do |line|
       next if line.chomp.strip.length.zero?
 
-      if /^T/.match(line)
+      if /^T/.match?(line)
         tile_id = line[/\d+/]
       else
         tile_data << line
@@ -160,14 +160,12 @@ class ImageTile
   # to bottom.
   #
   def find_border
-    edges = {
-      top:    pixels.first.join,
-      left:   pixels.map(&:first).join,
+    {
+      top: pixels.first.join,
+      left: pixels.map(&:first).join,
       bottom: pixels.last.join,
-      right:  pixels.map(&:last).join
+      right: pixels.map(&:last).join
     }
-
-    edges
   end
 
   ##
@@ -183,7 +181,6 @@ class ImageTile
 end
 
 class Image
-
   def initialize tiles
     self.tiles = tiles
     self.neighbors = Hash.new { |hash, key| hash[key] = Set.new }
@@ -202,7 +199,7 @@ class Image
 
   # NOTE: These are the images with only 2 neighbors
   def corners
-    neighbors.select { |_,v| v.size == 2 }.keys
+    neighbors.select { |_, v| v.size == 2 }.keys
   end
 
   private
@@ -212,7 +209,6 @@ class Image
 end
 
 class TileLocator
-
   def initialize image
     self.image = image
   end
@@ -236,6 +232,7 @@ class TileLocator
     # NOTE: First check in 'original' positions
     4.times do
       break if next_to_each_other
+
       tile_a.rotate_r
 
       next_to_each_other = tile_b.bottom == tile_a.top ||
@@ -248,6 +245,7 @@ class TileLocator
     tile_a.flip_h
     4.times do
       break if next_to_each_other
+
       tile_a.rotate_r
 
       next_to_each_other = tile_b.bottom == tile_a.top ||
@@ -261,6 +259,7 @@ class TileLocator
     tile_a.flip_v
     4.times do
       break if next_to_each_other
+
       tile_a.rotate_r
 
       next_to_each_other = tile_b.bottom == tile_a.top ||
@@ -272,5 +271,4 @@ class TileLocator
 
     next_to_each_other
   end
-
 end

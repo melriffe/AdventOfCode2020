@@ -4,8 +4,7 @@ require './lib/day_20'
 
 RSpec.describe 'Day 20: Jurassic Jigsaw' do
   let(:test_data) do
-    [
-    ]
+    []
   end
   let(:fixture) { File.join fixtures_path, 'day_20.data' }
   let(:fixture_data) { [] }

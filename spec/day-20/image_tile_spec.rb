@@ -3,7 +3,6 @@
 require './lib/day_20'
 
 RSpec.describe ImageTile do
-
   subject { described_class.new id, data }
 
   let(:id) { '2311' }
@@ -28,7 +27,6 @@ RSpec.describe ImageTile do
   let(:original_left)   { '.#####..#.' }
 
   describe '#border' do
-
     context 'with initial loading' do
       it 'captures top edge' do
         expect(subject.top).to eq original_top
@@ -48,7 +46,6 @@ RSpec.describe ImageTile do
     end
 
     context 'when rotating' do
-
       context 'with 1 rotation to the right' do
         before { subject.rotate_r }
 
@@ -171,7 +168,6 @@ RSpec.describe ImageTile do
     end
 
     context 'when flipping' do
-
       context 'on horizontal axis' do
         before { subject.flip_h }
 
@@ -256,6 +252,5 @@ RSpec.describe ImageTile do
         expect(subject.right).to eq original_top
       end
     end
-
   end
 end
