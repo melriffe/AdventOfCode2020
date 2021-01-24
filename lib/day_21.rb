@@ -39,8 +39,9 @@ class Day21
       # 'mxmxvkd kfcds sqjhc nhms (contains dairy, fish)'
       next if line.chomp.strip.length.zero?
 
-      _line = line.gsub(/\(|\)|,/, '')
-      parts = _line.split(' contains ')
+      # NOTE: The incoming line is frozern but I need to change it.
+      uf_line = line.gsub(/\(|\)|,/, '')
+      parts = uf_line.split(' contains ')
 
       food = Food.new
 
@@ -58,7 +59,7 @@ class Day21
 end
 
 class Food
-  attr_reader :allergens, :ingredients
+  attr_accessor :allergens, :ingredients
 
   def initialize
     self.allergens = []
@@ -80,12 +81,9 @@ class Food
   def ingredient? input
     ingredients.include? input
   end
-
-  attr_writer :allergens, :ingredients
 end
 
 class FoodDb
-
   def initialize food_stuffs
     self.food_stuffs = food_stuffs
   end
@@ -139,7 +137,7 @@ class FoodDb
 
   def find_non_allergen_ingredients
     ingredient_sets = food_stuffs.map(&:ingredients)
-    ingredient_sets.inject([]) { |sum, ingredient_set| sum + (ingredient_set - translated_allergens)}
+    ingredient_sets.inject([]) { |sum, ingredient_set| sum + (ingredient_set - translated_allergens) }
   end
 
   # NOTE: Return a hash of 'allergen' => 'ingredient'
@@ -170,7 +168,6 @@ class FoodDb
 end
 
 class FoodInspector
-
   def initialize food_stuffs
     self.food_db = FoodDb.new food_stuffs
   end
