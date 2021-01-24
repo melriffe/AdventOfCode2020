@@ -42,6 +42,7 @@ I will organize by Days, as they are presented on the AoC website.
 * [Day 19: Monster Messages](https://adventofcode.com/2020/day/19)
 * [Day 20: Jurassic Jigsaw](https://adventofcode.com/2020/day/20)
 * [Day 21: Allergen Assessment](https://adventofcode.com/2020/day/21)
+* [Day 22: Crab Combat](https://adventofcode.com/2020/day/22)
 
 ----
 
