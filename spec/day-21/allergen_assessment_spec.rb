@@ -26,9 +26,21 @@ RSpec.describe 'Day 21: Allergen Assessment' do
     it 'finds number of non-allergen ingredients' do
       expect(model.exercise1).to eq 5
     end
+
+    it 'finds the canonical dangerous ingredient list' do
+      expect(model.exercise2).to eq 'mxmxvkd,sqjhc,fvjkl'
+    end
   end
 
   context 'Exercises' do
     let(:model) { Day21.new fixture_data }
+
+    it 'finds number of non-allergen ingredients' do
+      expect(model.exercise1).to eq 2265
+    end
+
+    it 'finds the canonical dangerous ingredient list' do
+      expect(model.exercise2).to eq 'dtb,zgk,pxr,cqnl,xkclg,xtzh,jpnv,lsvlx'
+    end
   end
 end
