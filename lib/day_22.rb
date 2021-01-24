@@ -57,7 +57,6 @@ class Day22
 end
 
 class ScoreCalculator
-
   def self.score cards
     result = 0
     cards.reverse.each_with_index do |value, index|
@@ -65,7 +64,6 @@ class ScoreCalculator
     end
     result
   end
-
 end
 
 class Combatant
@@ -99,7 +97,7 @@ class Combatant
 end
 
 class CrabCombat
-  attr_reader :winner
+  attr_accessor :winner, :crab_one, :crab_two
 
   def initialize crab_one, crab_two
     self.crab_one = crab_one
@@ -107,18 +105,13 @@ class CrabCombat
   end
 
   def play!
-    while continue_to_play?
-      play_a_round
-    end
+    play_a_round while continue_to_play?
     determine_winner
   end
 
   def winning_score
     winner.score
   end
-
-  attr_accessor :crab_one, :crab_two
-  attr_writer :winner
 
   def continue_to_play?
     crab_one.continue? && crab_two.continue?
