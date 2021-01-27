@@ -53,3 +53,7 @@ To be completed:
 * [Day 18, part two](https://adventofcode.com/2020/day/18#part2)
 * [Day 19, part two](https://adventofcode.com/2020/day/19#part2)
 * [Day 20, part two](https://adventofcode.com/2020/day/20#part2)
+* [Day 22, part two](https://adventofcode.com/2020/day/22#part2)
+* [Day 23: Crab Cups](https://adventofcode.com/2020/day/23)
+* [Day 24: Lobby Layout](https://adventofcode.com/2020/day/24)
+* [Day 25: Combo Breaker](https://adventofcode.com/2020/day/25)
