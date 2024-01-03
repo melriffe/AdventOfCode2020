@@ -8,6 +8,7 @@
 # where the inspected file is and continue its way up to the root directory.
 #
 # See https://docs.rubocop.org/rubocop/configuration
+# rubocop --regenerate-todo --auto-gen-only-exclude
 
 require:
   - rubocop-performance
@@ -15,6 +16,13 @@ require:
   - rubocop-rspec
 
 inherit_from: .rubocop_todo.yml
+
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.2
+
+Layout/LineLength:
+  Max: 120
 
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.
