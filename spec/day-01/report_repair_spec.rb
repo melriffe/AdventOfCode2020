@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require './lib/day_01'
 
 RSpec.describe 'Day 1: Report Repair' do

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require './lib/day_15'
 
 RSpec.describe 'Day 15: Rambunctious Recitation' do

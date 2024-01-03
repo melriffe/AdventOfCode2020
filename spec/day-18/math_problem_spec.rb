@@ -1,8 +1,8 @@
 # frozen_string_literal: true
+
 require './lib/day_18'
 
 RSpec.describe MathProblem do
-
   subject { described_class.new test_expression }
 
   describe '#build' do

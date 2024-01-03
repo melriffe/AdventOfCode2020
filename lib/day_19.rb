@@ -124,7 +124,7 @@ class RegexpGenerator
   # That value is stored under rule number 2, for the test data rules.
   #
   def translate rule_number
-    rules[rule_number].gsub(/\d+/){ tr_rules[_1.to_i] }.gsub(/[ "]/, '')
+    rules[rule_number].gsub(/\d+/) { tr_rules[_1.to_i] }.gsub(/[ "]/, '')
   end
 
   ##

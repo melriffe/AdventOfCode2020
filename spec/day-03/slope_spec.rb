@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require './lib/day_03'
 
 RSpec.describe Slope do

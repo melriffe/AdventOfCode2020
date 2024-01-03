@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require './lib/day_17'
 
 RSpec.describe 'Day 17: Conway Cubes' do
@@ -28,6 +29,5 @@ RSpec.describe 'Day 17: Conway Cubes' do
 
   context 'Exercises' do
     let(:model) { Day17.new fixture_data }
-
   end
 end

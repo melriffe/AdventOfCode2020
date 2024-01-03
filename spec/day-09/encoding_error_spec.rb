@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require './lib/day_09'
 
 RSpec.describe 'Day 9: Encoding Error' do

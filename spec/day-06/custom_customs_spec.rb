@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require './lib/day_06'
 
 RSpec.describe 'Day 6: Custom Customs' do

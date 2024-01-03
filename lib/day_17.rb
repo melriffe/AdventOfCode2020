@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 ##
 # --- Day 17: Conway Cubes ---
 # https://adventofcode.com/2020/day/17
@@ -21,6 +22,5 @@ class Day17
   private
 
   def parse_data
-
   end
 end

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 ##
 # --- Day 16: Ticket Translation ---
 # https://adventofcode.com/2020/day/16

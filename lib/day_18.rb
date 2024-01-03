@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 ##
 # --- Day 18: Operation Order ---
 # https://adventofcode.com/2020/day/18
@@ -32,13 +33,13 @@ class Day18
     self.math_problems = []
     data.each do |line|
       next if line.strip.length.zero?
+
       math_problems << MathProblem.new(line)
     end
   end
 end
 
 class Homework
-
   def initialize math_problems
     self.math_problems = math_problems
   end
@@ -62,7 +63,6 @@ class Tree
   def leaf?
     left.nil? && right.nil?
   end
-
 end
 
 class MathProblem
@@ -89,7 +89,6 @@ class MathProblem
     chars = []
 
     expression.each_char do |character|
-
       if '(' == character
 
         chars << character
@@ -100,7 +99,7 @@ class MathProblem
 
       elsif operands.include?(character)
 
-        while(chars.any? && chars.last != '(')
+        while (chars.any? && chars.last != '(')
           t = Tree.new(chars.pop)
           t.right = nodes.pop
           t.left = nodes.pop
@@ -111,7 +110,7 @@ class MathProblem
 
       elsif ')' == character
 
-        while(chars.any? && chars.last != '(')
+        while (chars.any? && chars.last != '(')
           t = Tree.new(chars.pop)
           t.right = nodes.pop
           t.left = nodes.pop
@@ -121,7 +120,6 @@ class MathProblem
         chars.pop
 
       end
-
     end
 
     unless nodes.empty? && chars.empty?
@@ -157,11 +155,9 @@ class MathProblem
 
     node.data.compute left_value, right_value
   end
-
 end
 
 class Addition
-
   def compute augend, addend
     augend + addend
   end
@@ -173,11 +169,9 @@ class Addition
   def multiplication?
     false
   end
-
 end
 
 class Multiplication
-
   def compute multiplicand, multiplier
     multiplicand * multiplier
   end
@@ -189,7 +183,6 @@ class Multiplication
   def multiplication?
     true
   end
-
 end
 
 class Operation
@@ -197,5 +190,4 @@ class Operation
     '+' => Addition,
     '*' => Multiplication
   }.freeze
-
 end

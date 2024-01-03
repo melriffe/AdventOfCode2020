@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require './lib/day_18'
 
 RSpec.describe 'Day 18: Operation Order' do

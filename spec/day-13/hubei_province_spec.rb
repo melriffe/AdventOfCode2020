@@ -1,8 +1,8 @@
 # frozen_string_literal: true
+
 require './lib/day_13'
 
 RSpec.describe HubeiProvince do
-
   subject { described_class.new n, a }
 
   describe '#chinese_remainder' do

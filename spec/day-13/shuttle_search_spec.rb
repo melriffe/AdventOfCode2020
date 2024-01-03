@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require './lib/day_13'
 
 RSpec.describe 'Day 13: Shuttle Search' do

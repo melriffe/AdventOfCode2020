@@ -122,7 +122,7 @@ class FoodDb
   # is the 'allergen', and the second element is a list of possible
   # ingredients.
   def potential_allergen_ingredients
-    allergens.map{ [_1, find_allergen_ingredients(_1)] }
+    allergens.map { [_1, find_allergen_ingredients(_1)] }
   end
 
   def find_allergen_ingredients allergen
@@ -149,15 +149,15 @@ class FoodDb
     dangerous = potential_allergen_ingredients
     until dangerous.empty?
       # NOTE: Find a single-item ingredient list
-      allergen, ingredient = dangerous.find{ _2.size == 1 }
+      allergen, ingredient = dangerous.find { _2.size == 1 }
       matched[allergen] = ingredient.first
 
       # NOTE: Now remove the matched ingredient; this removes the
       # matched ingredient from the other ingredient lists.
-      dangerous = dangerous.map{ [_1, _2 - ingredient] }
+      dangerous = dangerous.map { [_1, _2 - ingredient] }
 
       # NOTE: Now remove the matched allergen
-      dangerous = dangerous.reject{ _1.first == allergen }
+      dangerous = dangerous.reject { _1.first == allergen }
     end
     matched
   end

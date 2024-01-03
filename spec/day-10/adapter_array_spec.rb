@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require './lib/day_10'
 
 RSpec.describe 'Day 10: Adapter Array' do
